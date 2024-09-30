@@ -10,12 +10,6 @@ case $prefix in
     "feat:")
         emoji=":sparkles:"
         ;;
-    "hammer:")
-        emoji=":hammer:"
-        ;;
-    "delete:")
-        emoji=":zap:"
-        ;;
     "uppkg:")
         emoji=":arrow_up:"
         ;;
@@ -33,12 +27,6 @@ case $prefix in
         ;;
     "tag:")
         emoji=":bookmark:"
-        ;;
-    "typo:")
-        emoji=":pencil2:"
-        ;;
-    "revert:" | "Revert")
-        emoji=":rewind:"
         ;;
     *)
         echo "The specified prefix is undefined."

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/button";
 import { NowPlayingWidget } from "@/components/spotify";
-//const token = process.env.SPOTIFY_TOKEN;
 
 export default function Home() {
   return (

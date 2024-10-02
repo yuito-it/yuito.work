@@ -9,7 +9,7 @@ dotenv.config();
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 const authorization_code = process.env.SPOTIFY_AUTHORIZATION_CODE;
-const redirect_uri = "http://localhost:3000";
+const redirect_uri = process.env.SPOTIFY_REDIRECT_URI;
 const tokensPath = path.join(process.cwd(), "tmp", "tokens.json");
 const nowPlayingPath = path.join(
   process.cwd(),
@@ -50,11 +50,11 @@ export async function setSpotifyStatus() {
   return now_playing;
 }
 
-async function getFirstAccessTokenToSpotify() {
+export async function getFirstAccessTokenToSpotify(code = authorization_code) {
   const headers = { Authorization: "Basic " + basic_authorization };
   const payload = qs.stringify({
     grant_type: "authorization_code",
-    code: authorization_code,
+    code: code,
     redirect_uri: redirect_uri,
   });
 
@@ -78,6 +78,7 @@ async function getFirstAccessTokenToSpotify() {
       " "
     );
     fs.writeFileSync(tokensPath, tokens);
+    console.log("Tokens saved to:", tokensPath);
   } catch (error) {
     console.error(
       "Error getting access token:",

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yuito-work
+spec:
+  selector:
+    matchLabels:
+      app: yuito-work
+  template:
+    metadata:
+      labels:
+        app: yuito-work
+    spec:
+      containers:
+        - name: yuito-work
+          image: yuito-work:0.1.0
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000

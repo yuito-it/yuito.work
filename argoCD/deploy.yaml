@@ -14,10 +14,6 @@ spec:
       containers:
         - name: yuito-work
           image: localhost:32000/yuito-work:0.3.1
-          resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
           envFrom:
           - secretRef:
               name: spotify

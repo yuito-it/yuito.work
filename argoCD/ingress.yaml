@@ -5,6 +5,7 @@ metadata:
   labels:
     name: yuito-work
 spec:
+  ingressClassName: nginx
   rules:
   - host: yuito.work
     http:

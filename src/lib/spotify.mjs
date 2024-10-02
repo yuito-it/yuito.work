@@ -11,11 +11,10 @@ const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 const authorization_code = process.env.SPOTIFY_AUTHORIZATION_CODE;
 const redirect_uri = process.env.SPOTIFY_REDIRECT_URI;
 const tokensPath = path.join(process.cwd(), "tmp", "tokens.json");
-const nowPlayingPath = path.join(
-  process.cwd(),
-  "tmp",
-  "nowPlaying.json"
-);
+const nowPlayingPath = path.join(process.cwd(), "tmp", "nowPlaying.json");
+if (!fs.existsSync(path.dirname(tokensPath))) {
+  fs.mkdirSync(path.dirname(tokensPath), { recursive: true });
+}
 
 let { access_token, refresh_token } = {};
 if (fs.existsSync(tokensPath)) {
@@ -36,7 +35,7 @@ export async function setSpotifyStatus() {
   if (!access_token) {
     await getFirstAccessTokenToSpotify();
   }
-  if (now_playing_temp && (Date.now() - now_playing_temp.timestamp) < 5000) {
+  if (now_playing_temp && Date.now() - now_playing_temp.timestamp < 5000) {
     console.log("Return cahce...");
     return now_playing_temp.data;
   }
@@ -139,10 +138,7 @@ async function getNowPlaying() {
         null,
         " "
       );
-      fs.writeFileSync(
-        nowPlayingPath,
-        json
-      );
+      fs.writeFileSync(nowPlayingPath, json);
       return response.data;
     } else if (response.status === 204) {
       return null;

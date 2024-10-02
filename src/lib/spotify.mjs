@@ -10,28 +10,33 @@ const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 const authorization_code = process.env.SPOTIFY_AUTHORIZATION_CODE;
 const redirect_uri = "http://localhost:3000";
-const tokensPath = path.join(process.cwd(), "src", "lib", "tokens.json");
+const tokensPath = path.join(process.cwd(), "tmp", "tokens.json");
 const nowPlayingPath = path.join(
   process.cwd(),
-  "src",
-  "lib",
+  "tmp",
   "nowPlaying.json"
 );
 
-let { access_token, refresh_token } = JSON.parse(
-  fs.readFileSync(tokensPath, "utf8")
-);
+let { access_token, refresh_token } = {};
+if (fs.existsSync(tokensPath)) {
+  ({ access_token, refresh_token } = JSON.parse(
+    fs.readFileSync(tokensPath, "utf8")
+  ));
+}
 
 const basic_authorization = Buffer.from(
   `${client_id}:${client_secret}`
 ).toString("base64");
 
 export async function setSpotifyStatus() {
-  let now_playing_temp = JSON.parse(fs.readFileSync(nowPlayingPath, "utf8"));
+  let now_playing_temp = null;
+  if (fs.existsSync(nowPlayingPath)) {
+    now_playing_temp = JSON.parse(fs.readFileSync(nowPlayingPath, "utf8"));
+  }
   if (!access_token) {
     await getFirstAccessTokenToSpotify();
   }
-  if (Date.now() - now_playing_temp.timestamp < 5000) {
+  if (now_playing_temp && (Date.now() - now_playing_temp.timestamp) < 5000) {
     console.log("Return cahce...");
     return now_playing_temp.data;
   }
@@ -134,38 +139,10 @@ async function getNowPlaying() {
         " "
       );
       fs.writeFileSync(
-        path.join(process.cwd(), "src", "lib", "nowPlaying.json"),
+        nowPlayingPath,
         json
       );
       return response.data;
-    } else if (response.status === 204) {
-      return null;
-    }
-  } catch (error) {
-    if (error.response?.status === 401) {
-      await refreshAccessTokenToSpotify();
-      return await getNowPlaying();
-    } else {
-      console.error(
-        "Error getting now playing:",
-        error.response?.data || error.message
-      );
-    }
-  }
-}
-
-export async function getAlbamArtwork(id) {
-  const headers = { Authorization: `Bearer ${access_token}` };
-  try {
-    const response = await axios.get(
-      `https://api.spotify.com/v1/albums/${id}`,
-      {
-        headers,
-      }
-    );
-
-    if (response.status === 200) {
-      return response.data.images[0];
     } else if (response.status === 204) {
       return null;
     }

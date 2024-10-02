@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Button } from "@/components/button";
-import { NowPlayingWidget } from "@/components/spotify";
+import NowPlayingWidget from "@/components/spotify";
+
+export const dynamic = 'force-dynamic';
 
 export default function Home() {
   return (

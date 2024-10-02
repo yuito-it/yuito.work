@@ -1,13 +1,18 @@
-import { setSpotifyStatus } from "@/lib/spotify.mjs";
+import { setSpotifyStatus } from "@/lib/spotify";
 import Image from 'next/image';
 
-export const NowPlayingWidget = async () => {
+export const dynamic = 'force-dynamic';
+
+async function NowPlayingWidget() {
     const nowPlaying = await setSpotifyStatus();
-    if (!nowPlaying) return null;
+
+    if (!nowPlaying) return <p>No song playing right now.</p>;
+
     let artists = nowPlaying.item.artists.map((artist: { name: string; }) => artist.name).join(", ");
     if (artists.length > 10) {
         artists = artists.slice(0, 10) + "...";
     }
+
     return (
         <div className="flex flex-row w-full gap-3">
             <Image src={nowPlaying.item.album.images[0].url} alt={nowPlaying.item.name} width={100} height={100} />
@@ -24,6 +29,8 @@ export const NowPlayingWidget = async () => {
                     />
                 </div>
             </div>
-        </div >
+        </div>
     );
-};
+}
+
+export default NowPlayingWidget;

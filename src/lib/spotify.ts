@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import qs from "qs";
 import fs from "fs";
 import path from "path";
-import dotenv from "dotenv";
 
-dotenv.config();
+export const dynamic = "force-dynamic";
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -16,7 +16,8 @@ if (!fs.existsSync(path.dirname(tokensPath))) {
   fs.mkdirSync(path.dirname(tokensPath), { recursive: true });
 }
 
-let { access_token, refresh_token } = {};
+let access_token: string;
+let refresh_token: string;
 if (fs.existsSync(tokensPath)) {
   ({ access_token, refresh_token } = JSON.parse(
     fs.readFileSync(tokensPath, "utf8")
@@ -81,7 +82,7 @@ export async function getFirstAccessTokenToSpotify(code = authorization_code) {
   } catch (error) {
     console.error(
       "Error getting access token:",
-      error.response?.data || error.message
+      (error as any).response?.data || (error as any).message
     );
   }
 }
@@ -117,10 +118,12 @@ async function refreshAccessTokenToSpotify() {
     );
     fs.writeFileSync(tokensPath, tokens);
   } catch (error) {
+    const err = error as any;
     console.error(
       "Error refreshing access token:",
-      error.response?.data || error.message
+      err.response?.data || err.message
     );
+    return 1;
   }
 }
 
@@ -143,14 +146,15 @@ async function getNowPlaying() {
     } else if (response.status === 204) {
       return null;
     }
-  } catch (error) {
+  } catch (error: any) {
     if (error.response?.status === 401) {
-      await refreshAccessTokenToSpotify();
+      if (await refreshAccessTokenToSpotify() == 1) return null;
       return await getNowPlaying();
     } else {
+      const err = error as any;
       console.error(
         "Error getting now playing:",
-        error.response?.data || error.message
+        err.response?.data || err.message
       );
     }
   }

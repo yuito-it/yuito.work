@@ -18,5 +18,9 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
+          envFrom:
+          - secretRef:
+              name: spotify
+              optional: true
           ports:
             - containerPort: 3000

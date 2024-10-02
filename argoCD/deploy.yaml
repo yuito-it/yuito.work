@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: yuito-work
-          image: yuito-work:0.1.0
+          image: yuito-work:0.2.1
           resources:
             limits:
               memory: "128Mi"

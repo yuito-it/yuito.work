@@ -2,8 +2,12 @@ import { Button } from "@/components/button";
 import { ImMail, ImTwitter } from "react-icons/im";
 import Link from "next/link";
 import Footer from "@/components/footer";
+import { Metadata } from "next";
 
-export const dynamic = 'force-dynamic';
+export const metadata: Metadata = {
+    title: "Contacts | yuito.work",
+    description: "How you can contact Yuito Akatsuki",
+};
 
 export default function Home() {
     return (

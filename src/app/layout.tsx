@@ -1,8 +1,6 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/app/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,11 +13,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata: Metadata = {
-  title: "Yuito Akatsuki - DigitalCreator",
-  description: "It is HP of a digital creator whose name is Yuito Akatsuki.",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <GoogleAnalytics gaId={"G-BF3ZSP6SM1"} />
-      </Head>
+      <GoogleAnalytics gaId={"G-BF3ZSP6SM1"} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

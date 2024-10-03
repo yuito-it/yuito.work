@@ -5,8 +5,12 @@ import Link from "next/link";
 import QiitaIcon from "@/components/qiita-icon";
 import Footer from "@/components/footer";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { Metadata } from "next";
 
-export const dynamic = 'force-dynamic';
+export const metadata: Metadata = {
+    title: "About | yuito.work",
+    description: "About Yuito Akatsuki",
+};
 
 export default function Home() {
     return (

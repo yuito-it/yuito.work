@@ -5,6 +5,12 @@ import { ImGithub, ImTwitter } from "react-icons/im";
 import Link from "next/link";
 import QiitaIcon from "@/components/qiita-icon";
 import Footer from "@/components/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Yuito Akatsuki - DigitalCreator",
+  description: "It is HP of a digital creator whose name is Yuito Akatsuki.",
+};
 
 export const dynamic = 'force-dynamic';
 

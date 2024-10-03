@@ -20,12 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleAnalytics gaId={"G-BF3ZSP6SM1"} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
+      <GoogleAnalytics gaId={"G-BF3ZSP6SM1"} />
     </html>
   );
 }

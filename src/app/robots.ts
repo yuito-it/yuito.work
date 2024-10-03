@@ -5,6 +5,6 @@ export default function robots() {
                 userAgent: "*",
             },
         ],
-        sitemap: `https://yuito.work/sitemap.xml`,
+        sitemap: `https://www.yuito.work/sitemap.xml`,
     };
 }

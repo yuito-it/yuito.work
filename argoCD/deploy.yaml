@@ -18,5 +18,12 @@ spec:
           - secretRef:
               name: spotify
               optional: true
+          volumeMounts:
+          - name: spotify
+            mountPath: /app/tmp
           ports:
             - containerPort: 3000
+      volumes:
+      - name: spotify
+        persistentVolumeClaim:
+          claimName: spotify

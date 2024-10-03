@@ -17,7 +17,7 @@ spec:
     path: /nfs/users/yuito/site/spotify
     server: nfs.unipro.infra
   claimRef:
-    namespace: yuito-site
+    namespace: yuito-work
     name: spotify
 ---
 apiVersion: v1

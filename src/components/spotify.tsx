@@ -8,6 +8,7 @@ async function NowPlayingWidget() {
     const nowPlaying = await setSpotifyStatus();
 
     if (!nowPlaying) return;
+    if (nowPlaying.currently_playing_type=="ad") return;
 
     let artists = nowPlaying.item.artists.map((artist: { name: string; }) => artist.name).join(", ");
     if (artists.length > 10) {

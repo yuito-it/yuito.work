@@ -15,12 +15,12 @@ async function NowPlayingWidget() {
     }
 
     return (
-        <div className="flex flex-row w-full gap-3">
-            <Image src={nowPlaying.item.album.images[0].url} alt={nowPlaying.item.name} width={100} height={100} />
-            <div className="flex flex-col grow">
+        <div className="flex flex-row w-full gap-3 max-h-100 items-center justify-center">
+            <Image src={nowPlaying.item.album.images[0].url} alt={nowPlaying.item.name} unoptimized width={100} height={100} className="max-h-full"/>
+            <div className="flex flex-col grow max-h-100">
                 <div>
-                    <h3 className="text-md flex flex-row items-center gap-1"><FaSpotify/>Spotify - Now Playing</h3>
-                    <h2 className="text-xl">{nowPlaying.item.name}</h2>
+                    <h3 className="md:text-md text-sm flex flex-row items-center gap-1"><FaSpotify/>Spotify - Now Playing</h3>
+                    <h2 className="md:text-xl">{nowPlaying.item.name}</h2>
                     <h4 className="text-sm">{artists}</h4>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">

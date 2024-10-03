@@ -2,6 +2,14 @@ import localFont from "next/font/local";
 import "@/app/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
+import type { Viewport } from 'next'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+  userScalable: false,
+}
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",

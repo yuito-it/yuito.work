@@ -43,7 +43,10 @@ export async function setSpotifyStatus() {
   const now_playing = await getNowPlaying();
 
   if (now_playing) {
-    console.log("Now playing:", now_playing.item.name);
+    if (now_playing.currently_playing_type === "track") {
+      //console.log(now_playing);
+      console.log("Now playing:", now_playing.item.name);
+    }
   } else {
     console.log("Not playing anything.");
   }

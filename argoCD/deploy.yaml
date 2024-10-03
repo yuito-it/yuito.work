@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: yuito-work
-          image: localhost:32000/yuito-work:1.1.0
+          image: localhost:32000/yuito-work:1.1.1
           envFrom:
           - secretRef:
               name: spotify

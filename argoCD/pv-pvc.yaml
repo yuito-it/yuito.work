@@ -14,7 +14,7 @@ spec:
     - hard
     - nfsvers=4.1
   nfs:
-    path: /nfs/users/yuito/site/spotify
+    path: /nfs/users/yuito-it/site/spotify
     server: nfs.unipro.infra
   claimRef:
     namespace: yuito-work

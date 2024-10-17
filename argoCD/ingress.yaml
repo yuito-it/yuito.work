@@ -6,7 +6,6 @@ metadata:
     name: yuito-work
   annotations:
     cert-manager.io/cluster-issuer: cloudflare
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     #nginx.ingress.kubernetes.io/from-to-www-redirect: "true"

@@ -5,7 +5,7 @@ metadata:
   labels:
     name: yuito-work
   annotations:
-    cert-manager.io/cluster-issuer: cloudflare
+    cert-manager.io/cluster-issuer: le-cf-prod
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"

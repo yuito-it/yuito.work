@@ -20,10 +20,10 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-work:${{ env.TAG_NAME }} .
+        run: docker build -t ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-it/yuito-work:${{ env.TAG_NAME }} .
 
       - name: Save Docker image to file
-        run: docker save ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-work:${{ env.TAG_NAME }} -o image.tar
+        run: docker save ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-it/yuito-work:${{ env.TAG_NAME }} -o image.tar
 
       - name: Upload Docker image as artifact
         uses: actions/upload-artifact@v4
@@ -60,4 +60,4 @@ jobs:
         run: docker load -i image.tar
 
       - name: Push Docker image
-        run: docker push ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-work:${{ env.TAG_NAME }}
+        run: docker push ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-it/yuito-work:${{ env.TAG_NAME }}

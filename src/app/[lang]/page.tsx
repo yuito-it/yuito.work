@@ -34,7 +34,7 @@ export default async function Home({
         <Image src={"https://avatars.githubusercontent.com/u/132048482?v=4"} className="rounded-full" width="80" height="80" alt={""} />
         <div className="flex flex-col gap-8 min-w-1/2 grow">
           <div className="flex flex-col gap-1">
-            <h1 className="text-2xl sm:text-3xl md:text-left text-center font-bold" id="title"><ruby>{dict.home.name}<rp>(</rp><rt>{dict.home.ruby ?? null}</rt><rp>)</rp></ruby></h1>
+            <h1 className="text-2xl sm:text-3xl md:text-left text-center font-bold" id="title"><ruby>{dict.home.name}<rp>(</rp><rt>{dict.home.ruby}</rt><rp>)</rp></ruby></h1>
             <p className="text-sm text-center md:text-left font-[family-name:var(--font-geist-mono)]">
               {dict.home.jobs}
             </p>

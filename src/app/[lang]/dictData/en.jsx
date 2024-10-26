@@ -6,6 +6,7 @@ const data = {
     title: "Yuito Akatsuki - Digital Creator",
     description: "This is Akatsuki Yuito's website.",
     name: "Yuito Akatsuki",
+    ruby: null,
     jobs: "DigitalCreator / WebDeveloper / InfrastructureEngineer / ProjectManager",
     button: {
       about: "About more...",

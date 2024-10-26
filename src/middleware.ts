@@ -11,7 +11,7 @@ function getLocale(request: NextRequest): string | undefined {
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-  const locales: readonly string[] = i18n.locales;
+  const locales: string[] = [...i18n.locales];
 
   // Negotiator と intl-localematcher を使用して最適なロケールを取得
   const languages = new Negotiator({ headers: negotiatorHeaders }).languages(

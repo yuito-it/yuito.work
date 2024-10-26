@@ -10,10 +10,18 @@ import { Locale } from "@/i18n-config";
 
 export async function generateMetadata({ params: { lang } }: { params: { lang: Locale } }): Promise<Metadata> {
     const dict = await getDictionary(lang);
-
     const res: Metadata = {
         title: `${dict.about.title} | yuito.work`,
         description: dict.about.description,
+    };
+    if (lang === "ja") {
+    return res;
+    }
+    res.alternates = {
+        canonical: `https://yuito.work/about`,
+        languages: {
+            "ja": "https://yuito.work/ja/about",
+        },
     };
     return res;
 }

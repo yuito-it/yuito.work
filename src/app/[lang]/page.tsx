@@ -16,6 +16,15 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: L
     title: `${dict.home.title}`,
     description: dict.home.description,
   };
+  if (lang === "ja") {
+    return res;
+  }
+  res.alternates = {
+    canonical: `https://yuito.work/`,
+    languages: {
+      "ja": "https://yuito.work/ja",
+    },
+  };
   return res;
 }
 

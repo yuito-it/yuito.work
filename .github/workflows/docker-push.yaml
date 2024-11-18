@@ -25,38 +25,5 @@ jobs:
         run: docker build -t ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-it/yuito-work:latest .
         id: build
 
-      - name: Save Docker image to file
-        run: docker save ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-it/yuito-work:latest -o image.tar
-
-      - name: Upload Docker image as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: image
-          path: image.tar
-          retention-days: 1
-
-  push:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Download Docker image artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: image
-          path: .
-
-      - name: Check Docker status
-        run: |
-          export DOCKER_CLIENT_TIMEOUT=18000
-          export COMPOSE_HTTP_TIMEOUT=240
-          sudo systemctl status docker.service
-          sudo journalctl -xeu docker.service
-
-      - name: Load Docker image from file
-        run: docker load -i image.tar
-
       - name: Push Docker image
         run: docker push ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-it/yuito-work:latest

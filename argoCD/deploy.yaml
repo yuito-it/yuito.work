@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: yuito-work
-          image: registry-beta.uniproject-tech.net/yuito-it/yuito-work:latest
+          image: registry-beta.uniproject-tech.net/yuito-it/yuito-work:3.1.1
           envFrom:
           - secretRef:
               name: spotify

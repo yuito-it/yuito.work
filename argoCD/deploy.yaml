@@ -16,19 +16,26 @@ spec:
     spec:
       containers:
         - name: yuito-work
-          image: registry-beta.uniproject-tech.net/yuito-it/yuito-work:3.1.2
+          image: registry.uniproject-tech.net/yuito-it/yuito-work:3.1.3
           envFrom:
-          - secretRef:
-              name: spotify
-              optional: true
+            - secretRef:
+                name: spotify
+                optional: true
           volumeMounts:
-          - name: spotify
-            mountPath: /app/tmp
+            - name: spotify
+              mountPath: /app/tmp
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
           ports:
             - containerPort: 3000
-      imagePullSecrets: 
+      imagePullSecrets:
         - name: harbor-registry-secret
       volumes:
-      - name: spotify
-        persistentVolumeClaim:
-          claimName: spotify
+        - name: spotify
+          persistentVolumeClaim:
+            claimName: spotify

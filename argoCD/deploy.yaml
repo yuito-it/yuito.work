@@ -26,6 +26,8 @@ spec:
             mountPath: /app/tmp
           ports:
             - containerPort: 3000
+          imagePullSecrets: 
+          - name: harbor-registry-secret
       volumes:
       - name: spotify
         persistentVolumeClaim:

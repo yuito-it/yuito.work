@@ -143,6 +143,10 @@ async function getNowPlaying() {
         null,
         " "
       );
+      if (response.data.device.is_private_session) {
+        console.log("Private session, return null.");
+        return null;
+      }
       fs.writeFileSync(nowPlayingPath, json);
       return response.data;
     } else if (response.status === 204) {

@@ -29,7 +29,7 @@ const data = {
       <>
         あかつきゆいとはデジタルクリエイター、Web開発者、インフラエンジニア、プロジェクトマネージャーです。2009年生まれで、現在日本のS高等学校に通う学生です。また、全日本デジタルサークル{" "}
         <Link
-          href={"https://UniProject-tech.net"}
+          href={"https://uniproject.jp"}
           target="_blank"
           className="hover:underline inline-flex items-baseline"
         >

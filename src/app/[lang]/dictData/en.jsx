@@ -32,7 +32,7 @@ const data = {
         student at a S High School in Japan. He is also a member of the
         All-Japan Digital Creative Club{" "}
         <Link
-          href={"https://UniProject-tech.net"}
+          href={"https://uniproject.jp"}
           target="_blank"
           className="hover:underline inline-flex items-baseline"
         >

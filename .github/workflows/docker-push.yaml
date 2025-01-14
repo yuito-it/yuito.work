@@ -22,8 +22,8 @@ jobs:
           password: ${{ secrets.HARBOR_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-it/yuito-work:latest .
+        run: docker build -t registry.uniproject.jp/yuito-it/yuito-work:latest .
         id: build
 
       - name: Push Docker image
-        run: docker push ${{ secrets.K8S_DOCKER_REGISTHOST }}/yuito-it/yuito-work:latest
+        run: docker push registry.uniproject.jp/yuito-it/yuito-work:latest

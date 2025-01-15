@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install project dependencies
-RUN npm install
+RUN bun install
 
 # Copy the rest of the project files to the working directory
 COPY . .

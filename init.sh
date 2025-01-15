@@ -1,2 +1,2 @@
-npm run build
-npm run start
+bun run build
+bun run start

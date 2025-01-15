@@ -24,13 +24,6 @@ spec:
           volumeMounts:
             - name: spotify
               mountPath: /app/tmp
-          resources:
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
           ports:
             - containerPort: 3000
       imagePullSecrets:

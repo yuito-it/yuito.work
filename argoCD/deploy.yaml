@@ -26,6 +26,16 @@ spec:
               mountPath: /app/tmp
           ports:
             - containerPort: 3000
+              name: default-port
+          readinessProbe:
+          initialDelaySeconds: 10
+          periodSeconds: 20
+          httpGet:
+            path: /
+            port: default-port
+            httpHeaders:
+            - name: X-k8s-Header
+              value: readiness
       imagePullSecrets:
         - name: harbor-registry-secret
       volumes:

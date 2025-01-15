@@ -24,14 +24,14 @@ const geistMono = localFont({
 export default async function RootLayout(
   props: Readonly<{
     children: React.ReactNode;
-    params: { lang: string };
+    params: Promise<{ lang: string }>;
   }>
 ) {
   const params = await props.params;
 
   const {
     lang
-  } = params;
+  } = await params;
 
   const {
     children

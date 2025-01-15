@@ -8,7 +8,13 @@ import { Metadata } from "next";
 import { getDictionary } from "../dictionaries";
 import { Locale } from "@/i18n-config";
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: Locale } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ lang: Locale }> }): Promise<Metadata> {
+    const params = await props.params;
+
+    const {
+        lang
+    } = params;
+
     const dict = await getDictionary(lang);
     const res: Metadata = {
         title: `${dict.about.title} | yuito.work`,
@@ -26,7 +32,13 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: L
     return res;
 }
 
-export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
+    const params = await props.params;
+
+    const {
+        lang
+    } = params;
+
     const dict = await getDictionary(lang);
     return (
         <div className="grid grid-rows-[20px_1fr_20px] grid-cols-1 items-center justify-items-center min-h-screen p-8 w-full pb-20 md:gap-16 gap-20 font-[family-name:var(--font-geist-sans)]">

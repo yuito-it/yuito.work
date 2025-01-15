@@ -9,7 +9,13 @@ import { Metadata } from "next";
 import { Locale } from "@/i18n-config";
 import { getDictionary } from "./dictionaries";
 
-export async function generateMetadata({ params: { lang } }: { params: { lang: Locale } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ lang: Locale }> }): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    lang
+  } = params;
+
   const dict = await getDictionary(lang);
 
   const res: Metadata = {
@@ -30,11 +36,17 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: L
 
 export const dynamic = 'force-dynamic';
 
-export default async function Home({
-  params: { lang },
-}: {
-  params: { lang: Locale };
-}) {
+export default async function Home(
+  props: {
+    params: Promise<{ lang: Locale }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    lang
+  } = params;
+
   console.log(lang);
   const dict = await getDictionary(lang);
   return (

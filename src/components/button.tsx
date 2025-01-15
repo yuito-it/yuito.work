@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ComponentPropsWithoutRef, Ref, forwardRef } from 'react';
+import { ComponentPropsWithoutRef, Ref, forwardRef, type JSX } from 'react';
 const styles = {
     commonDesign: "border-b dark:text-white px-4 py-2 leading-none m-2",
     linkDisabled: "opacity-50 cursor-not-allowed leading-none",

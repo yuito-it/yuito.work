@@ -70,6 +70,8 @@ data:
     listen       80;
     server_name  www.xn--n8jvdzd.jp;
     server_name  xn--n8jvdzd.jp;
+    server_name  ゆいと.jp;
+    server_name  www.ゆいと.jp;
     server_name  www.yuito.work;
     server_name  yuito.work;
     return 301 https://www.yuito-it.jp$request_uri;

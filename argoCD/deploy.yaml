@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: yuito-work
-          image: registry.uniproject.jp/yuito-it/yuito-work:3.2.2
+          image: registry.uniproject.jp/yuito-it/yuito-work:3.3.0
           envFrom:
             - secretRef:
                 name: spotify
@@ -34,8 +34,8 @@ spec:
               path: /
               port: default-port
               httpHeaders:
-              - name: X-k8s-Header
-                value: readiness
+                - name: X-k8s-Header
+                  value: readiness
       imagePullSecrets:
         - name: harbor-registry-secret
       volumes:

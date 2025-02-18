@@ -145,7 +145,7 @@ spec:
                 name: nginx-rvp
                 port:
                   number: 80
-    - host: www.xn--n8jvdzd.jp.jp
+    - host: www.xn--n8jvdzd.jp
       http:
         paths:
           - path: /

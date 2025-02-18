@@ -12,18 +12,18 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: www.yuito.work
-    http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: yuito-work
-            port: 
-              number: 80
+    - host: www.ゆいと.jp
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: yuito-work
+                port:
+                  number: 80
   tls:
     - hosts:
-      - yuito.work
-      - www.yuito.work
+        - ゆいと.jp
+        - www.ゆいと.jp
       secretName: yuito-work-tls

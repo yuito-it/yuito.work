@@ -159,6 +159,6 @@ spec:
     - hosts:
         - www.yuito.work
         - yuito.work
-        - xn--n8jvdzd.jp.jp
-        - www.xn--n8jvdzd.jp.jp
+        - xn--n8jvdzd.jp
+        - www.xn--n8jvdzd.jp
       secretName: unipro-www-old-tls

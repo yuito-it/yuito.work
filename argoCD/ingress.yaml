@@ -12,7 +12,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: www.xn--n8jvdzd.jp
+    - host: www.yuito-it.jp
       http:
         paths:
           - pathType: Prefix
@@ -24,6 +24,6 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - xn--n8jvdzd.jp
-        - www.xn--n8jvdzd.jp
+        - yuito-it.jp
+        - www.yuito-it.jp
       secretName: yuito-work-tls

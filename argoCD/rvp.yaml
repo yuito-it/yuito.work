@@ -158,7 +158,7 @@ spec:
   tls:
     - hosts:
         - www.yuito.work
-        - yuito.wotk
+        - yuito.work
         - yuito-it.jp
         - www.yuito-it.jp
       secretName: unipro-www-old-tls

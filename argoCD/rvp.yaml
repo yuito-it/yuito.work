@@ -68,6 +68,9 @@ data:
   site.conf: |
     server {
     listen       80;
+    listen [::]:80;
+    listen      443 ssl http2;
+    listen [::]:443 ssl http2;
     server_name  www.xn--n8jvdzd.jp;
     server_name  xn--n8jvdzd.jp;
     server_name  ゆいと.jp;

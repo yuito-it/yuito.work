@@ -11,7 +11,7 @@ const data = {
     jobs: "Digital Creator / Web Developer / Infrastructure Engineer / Project Manager",
     button: {
       about: "About more...",
-      works: "Works (Coming soon)",
+      works: "Works",
       contacts: "Contacts",
     },
   },

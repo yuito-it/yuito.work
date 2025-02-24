@@ -11,7 +11,7 @@ const data = {
     jobs: "UniProject創設者 / デジタルクリエイター / Webエンジニア / インフラエンジニア / プロジェクトマネージャー",
     button: {
       about: "About more...",
-      works: "Works(Comming soon)",
+      works: "Works",
       contacts: "Contacts",
     },
   },

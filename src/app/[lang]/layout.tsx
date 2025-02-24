@@ -2,13 +2,13 @@ import localFont from "next/font/local";
 import "@/app/globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-import type { Viewport } from 'next'
+import type { Viewport } from "next";
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1.0,
   userScalable: false,
-}
+};
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -29,13 +29,9 @@ export default async function RootLayout(
 ) {
   const params = await props.params;
 
-  const {
-    lang
-  } = await params;
+  const { lang } = await params;
 
-  const {
-    children
-  } = props;
+  const { children } = props;
 
   return (
     <html lang={lang} className="w-full">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import Image from "next/image";
 
 const data = {
   home: {
@@ -10,7 +11,7 @@ const data = {
     jobs: "UniProject創設者 / デジタルクリエイター / Webエンジニア / インフラエンジニア / プロジェクトマネージャー",
     button: {
       about: "About more...",
-      works: "Works(Comming soon)",
+      works: "Works",
       contacts: "Contacts",
     },
   },
@@ -38,6 +39,95 @@ const data = {
         </Link>{" "}
         を創設し、様々なプロジェクトに取り組んでいます。
       </>
+    ),
+  },
+  works: {
+    title: "Works",
+    description: "私が今まで制作したり関わったものの一覧です。",
+    contents: (
+      <div className="space-y-4 p-5">
+        <section className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-grow justify-center items-center">
+            <Image
+              src="/img/UniPro_Logo.webp"
+              alt="UniProject"
+              height={150}
+              width={150}
+            />
+          </div>
+          <div className="md:w-3/5">
+            <h2 className="text-2xl">
+              <Link
+                href={"https://uniproject.jp"}
+                target="_blank"
+                className="flex flex-row items-center gap-2"
+              >
+                UniProject
+                <FaExternalLinkAlt />
+              </Link>
+            </h2>
+            <p>
+              UniProjectはデジタルクリエイターの情報交換など、
+              気軽に交流できる場所を目指してつくられたオンラインサークルです。
+              ウェブサイト、アプリケーション、ビデオの制作など、様々なプロジェクトに取り組んでいます。
+            </p>
+          </div>
+        </section>
+        <section className="flex flex-col md:flex-row gap-4">
+          <div className="md:w-3/5">
+            <h2 className="text-2xl">
+              <Link
+                href={"https://linkle.nnn.uniproject.jp"}
+                target="_blank"
+                className="flex flex-row items-center gap-2"
+              >
+                同好会ポータル Linkle
+                <FaExternalLinkAlt />
+              </Link>
+            </h2>
+            <p>
+              同好会ポータル Linkleは、UniProjectが運営する、
+              N/S/R高等学校内の同好会の情報を集約するウェブサイトです。
+              同好会の情報を探す際に便利な機能が揃っています。
+            </p>
+          </div>
+          <div className="flex flex-grow justify-center items-center">
+            <Image
+              src="/img/Linkle.png"
+              alt="Linkle"
+              height={150}
+              width={300}
+            />
+          </div>
+        </section>
+        <section className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-grow justify-center items-center">
+            <Image
+              src="/img/UniProGitTool.webp"
+              alt="UniPro Git Tool"
+              height={150}
+              width={350}
+            />
+          </div>
+          <div className="md:w-3/5">
+            <h2 className="text-2xl">
+              <Link
+                href={"https://github.com/UniPro-tech/UniPro-Git-Tool"}
+                target="_blank"
+                className="flex flex-row items-center gap-2"
+              >
+                UniPro Git Tool
+                <FaExternalLinkAlt />
+              </Link>
+            </h2>
+            <p>
+              UniPro Git
+              ToolはGitのコミットメッセージをいいかんじにするためのツールです。
+              コミットメッセージのテンプレートや、コミットメッセージのprefixに応じて、絵文字を追加できるようになっています。
+            </p>
+          </div>
+        </section>
+      </div>
     ),
   },
 };

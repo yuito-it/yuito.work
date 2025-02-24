@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Button } from "@/components/button";
 import { ImGithub, ImTwitter } from "react-icons/im";
 import Link from "next/link";
@@ -43,7 +42,7 @@ export default async function Home(props: {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] grid-cols-1 items-center justify-items-center min-h-screen p-8 w-full pb-20 md:gap-16 gap-20 font-[family-name:var(--font-geist-sans)]">
       <header className="flex items-left justify-left w-full">
-        <Button<"Link"> href="/" back="true">
+        <Button<"Link"> href={`/${lang}`} back="true">
           {dict.common.BackHome}
         </Button>
       </header>
@@ -84,25 +83,6 @@ export default async function Home(props: {
               Qiita: @yuito_it_
             </Link>
           </div>
-        </div>
-        <div className="flex flex-col justify-center items-center md:max-w-1/2 gap-5">
-          <div className="items-center flex justify-left grow  w-full">
-            <Link
-              href={"https://github.com/UniPro-tech/UniPro-Git-Tool"}
-              target="_blank"
-            >
-              <Image
-                src={"/img/UniProGitTool.webp"}
-                width={400}
-                height={400}
-                className="rounded"
-                alt="UniPro-Git-Tool"
-              />
-            </Link>
-          </div>
-          {/*<div className="items-cen flex justify-end  grow w-full">
-                        <Image src={"/img/UniProGitTool.webp"} width={400} height={400} className="rounded" alt=""/>
-                    </div>*/}
         </div>
       </main>
       <Footer />

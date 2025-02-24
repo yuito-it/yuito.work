@@ -43,7 +43,7 @@ export default async function Home(props: {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] grid-cols-1 items-center justify-center min-h-screen w-full p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header className="flex items-left justify-left w-full">
-        <Button<"Link"> href="/" back="true">
+        <Button<"Link"> href={`/${lang}`} back="true">
           {dict.common.BackHome}
         </Button>
       </header>

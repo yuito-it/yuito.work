@@ -85,13 +85,16 @@ export default async function Home(props: {
           </div>
           <NowPlayingWidget />
           <div className="flex gap-1 items-center flex-col sm:flex-row">
-            <Button<"Link"> href="/about" rel="noopener noreferrer">
+            <Button<"Link"> href={`/${lang}/about`} rel="noopener noreferrer">
               {dict.home.button.about}
             </Button>
-            <Button<"Link"> href="#" rel="noopener noreferrer" disabled>
+            <Button<"Link"> href={`/${lang}/works`} rel="noopener noreferrer">
               {dict.home.button.works}
             </Button>
-            <Button<"Link"> href="/contacts" rel="noopener noreferrer">
+            <Button<"Link">
+              href={`/${lang}/contacts`}
+              rel="noopener noreferrer"
+            >
               {dict.home.button.contacts}
             </Button>
           </div>

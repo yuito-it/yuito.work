@@ -40,7 +40,7 @@ export default function footer() {
         </a>
       </div>
       <span className="text-center">
-        &copy;2024 YuitoAkatsuki All rights reserved.
+        &copy;2024-2025 YuitoAkatsuki All rights reserved.
       </span>
     </footer>
   );

@@ -43,7 +43,7 @@ export default async function Home(props: {
           {dict.common.BackHome}
         </Button>
       </header>
-      <main className="flex flex-col gap-6 row-start-2 items-left w-[70%] border border-white justify-center grow mb-10 md:mb-0">
+      <main className="flex flex-col gap-6 row-start-2 items-left w-[70%] justify-center grow mb-10 md:mb-0">
         <div className="flex flex-col gap-1">
           <h1
             className="text-3xl sm:text-3xl font-bold md:text-left text-center"

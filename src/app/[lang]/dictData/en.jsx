@@ -51,7 +51,7 @@ const data = {
     contents: (
       <div className="space-y-4 p-5">
         <section className="flex flex-col md:flex-row gap-4">
-          <div className="flex flex-grow justify-center items-center">
+          <div className="flex flex-grow justify-center items-center md:order-1 order-2">
             <Image
               src="/img/UniPro_Logo.webp"
               alt="UniProject"
@@ -59,7 +59,7 @@ const data = {
               width={150}
             />
           </div>
-          <div className="md:w-3/5">
+          <div className="md:w-3/5 md:order-2 order-1">
             <h2 className="text-2xl">
               <Link
                 href={"https://uniproject.jp"}

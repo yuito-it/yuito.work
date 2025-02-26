@@ -50,7 +50,7 @@ const data = {
       "Here is a list of the things I have created and been involved in so far.",
     contents: (
       <div className="space-y-4 p-5">
-        <section className="flex flex-col md:flex-row gap-4">
+        <section className="flex flex-col md:flex-row gap-4 md:order-1 order-2">
           <div className="flex flex-grow justify-center items-center md:order-1 order-2">
             <Image
               src="/img/UniPro_Logo.webp"
@@ -59,7 +59,7 @@ const data = {
               width={150}
             />
           </div>
-          <div className="md:w-3/5 md:order-2 order-1">
+          <div className="md:w-3/5 order-1 md:order-2">
             <h2 className="text-2xl">
               <Link
                 href={"https://uniproject.jp"}
@@ -78,6 +78,7 @@ const data = {
             </p>
           </div>
         </section>
+        <hr />
         <section className="flex flex-col md:flex-row gap-4">
           <div className="md:w-3/5">
             <h2 className="text-2xl">
@@ -105,8 +106,9 @@ const data = {
             />
           </div>
         </section>
+        <hr />
         <section className="flex flex-col md:flex-row gap-4">
-          <div className="flex flex-grow justify-center items-center">
+          <div className="flex flex-grow justify-center items-center md:order-1 order-2">
             <Image
               src="/img/UniProGitTool.webp"
               alt="UniPro Git Tool"
@@ -114,7 +116,7 @@ const data = {
               width={350}
             />
           </div>
-          <div className="md:w-3/5">
+          <div className="md:w-3/5 order-1 md:order-2">
             <h2 className="text-2xl">
               <Link
                 href={"https://github.com/UniPro-tech/UniPro-Git-Tool"}

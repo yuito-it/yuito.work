@@ -1,0 +1,16 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: harbor-registry-secret
+  namespace: yuito-site
+spec:
+  encryptedData:
+    .dockerconfigjson: AgAH/JbMextY9+ftTCUm7jiSy6X0SOWefAGA5UiifOlma24UylCVrC0xYs1B+vfi3G33JCJNNG/xnDmQDaUPYjw/B4K8bCe9eBnekdIB4SmAw5BgQ3OSx6qV4xoDoPjVxF3FfGjI0AuCfuga6PxUd+PWSUmc3zeIsqiBzGw+zx7BUUtH/aT4mORKDZ7JA2CnOrXYhWRCYnB8gUavB7Dj+/CxShFx3re5JGDSNLVCV6AJ2WiiXbnaBWx7pOF5ci4kvb0+GOIl8r+LXWAEEuKzcPFRkjFMsXKl209xP4sElQTwy2w62mYQYAFuEKBNAQf0a7/nnJI+0AGM6mzG2/IMS2eRLTt67N6lWvpWEKvz2FcFzODR1wVvtDZm9ybDd7vKkHb7Iq7MsKlxcgN0EZBIMK92x/Zmj0iY7qgkbLXo1JFlyAx1ef4b7NXiHb4iDBR4d4aG0VkUujtnr4JtRBT5xHtmybAk0jb53G9ZOCZVUEr4BeTwExxG2XYDpKtuNYOKTw2UIWoE1z2apPerdp1vNDm0nM3x2JwhjfY54OkPrxTxjaZ3GC0eDZlyWxBeJDgGbeqWXMZQCxhvn6ALtSP0+AZU4TA2A+T5VK2foZ5qrxhSk7RkmX8ftsKygBCToRuVB40vfB1XyhTtOS6HNZ2CNBNluzA7sx+jYaO6Azh14jAhuD6slXbdB2q5FGJ9ctJbBWaXCC0GAWNcCouNmW7K+8/8Gar8UFtGxW2b5O5W+E3kMqdd36OWV/2pKNVobh3a4SFBLRd8Cdr2X//vQUJJrG1jB+3o8dENRJzFReJ6Ujq/09uf3KcB9qLwknTO7SJSEFP3mL5s4LE6Rb/P9yeLX3/0c0RBR5SbFiiYq5zTpkeyklBg17L6KO7WeCIwj668GH25K3EdMHXp+rdIbq9Jy5/oFfpYrB2kawI5EuYFlrCtSt9FvFz9/VZkU2dhInASs0HSWWk1BNXPr0GE+pZV4629W5l6hbBTgwGy8jbRKiGI1xPldlciuec2hi32lcLt6Q2PPgCWPa1exr1+VB1VwXyu3uYkzQEDsvNv/uEXEA==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: harbor-registry-secret
+      namespace: yuito-site
+    type: kubernetes.io/dockerconfigjson

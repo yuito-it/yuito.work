@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: yuito-work
+  name: yuito-site
 spec:
   selector:
-    app: yuito-work
+    app: yuito-site
   ports:
-  - port: 80
-    targetPort: 3000
+    - port: 80
+      targetPort: 3000

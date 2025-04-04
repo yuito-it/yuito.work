@@ -8,30 +8,30 @@ const data = {
     description: "This is Akatsuki Yuito's website.",
     name: "Yuito Akatsuki",
     ruby: null,
-    jobs: "Digital Creator / Web Developer / Infrastructure Engineer / Project Manager",
+    jobs: "Founder of UniProject / Digital Creator / Web Developer / Infrastructure Engineer / Project Manager",
     button: {
-      about: "About more...",
+      about: "Learn more...",
       works: "Works",
       contacts: "Contacts",
     },
   },
   contacts: {
     title: "Contacts",
-    description: "My contact information",
-    contents: "If you want to contact me, please contact me via these ways.",
+    description: "Contact information",
+    contents: "Please contact me using the methods below. Replace [at] with @.",
   },
   common: {
     BackHome: "Back to Home",
   },
   about: {
     title: "About",
-    description: "Self-introduction",
+    description: "Introduction",
     contents: (
       <>
         Yuito Akatsuki is a Digital Creator, Web Developer, Infrastructure
-        Engineer, and Project Manager. He was born in 2009 and is currently a
-        student at a S High School in Japan. He is also a member of the
-        All-Japan Digital Creative Club{" "}
+        Engineer, and Project Manager. Born in 2009, he is currently a student
+        at S High School in Japan. He is also the founder of the All-Japan
+        Digital Circle{" "}
         <Link
           href={"https://uniproject.jp"}
           target="_blank"
@@ -40,17 +40,16 @@ const data = {
           &quot;UniProject&quot;
           <FaExternalLinkAlt />
         </Link>{" "}
-        and is working on various projects.
+        and actively participates in various projects.
       </>
     ),
   },
   works: {
     title: "Works",
-    description:
-      "Here is a list of the things I have created and been involved in so far.",
+    description: "A list of projects I have created or been involved in.",
     contents: (
       <div className="space-y-4 p-5">
-        <section className="flex flex-col md:flex-row gap-4 md:order-1 order-2">
+        <section className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-grow justify-center items-center md:order-1 order-2">
             <Image
               src="/img/UniPro_Logo.webp"
@@ -71,10 +70,9 @@ const data = {
               </Link>
             </h2>
             <p>
-              UniProject is an online circle created to provide a place for
-              digital creators to exchange information and interact casually. We
-              are working on various projects such as website, application, and
-              video production.
+              UniProject is an online community created to provide a space for
+              digital creators to exchange ideas and collaborate. We work on
+              various projects, including websites, applications, and videos.
             </p>
           </div>
         </section>
@@ -92,9 +90,23 @@ const data = {
               </Link>
             </h2>
             <p>
-              Club Portal Linkle is a website operated by UniProject that
+              Club Portal Linkle is a website managed by UniProject that
               aggregates information about clubs within N/S/R High School. It
-              has convenient features for finding club information.
+              provides convenient features for finding club information. This
+              project received the Excellence Award at the{" "}
+              <bold className="font-bold">
+                <Link
+                  href={
+                    "https://progedu.github.io/webappcontest/2024/winter/entry/result.html"
+                  }
+                  target="_blank"
+                  arget="_blank"
+                  className="hover:underline inline-flex items-baseliner:underline inline-flex items-baseline"
+                >
+                  ZEN Study Moving Web App Contest Winter 2024 ZEN Study
+                  <FaExternalLinkAlt />
+                </Link>
+              </bold>
             </p>
           </div>
           <div className="flex flex-grow justify-center items-center">
@@ -120,16 +132,18 @@ const data = {
             <h2 className="text-2xl">
               <Link
                 href={"https://github.com/UniPro-tech/UniPro-Git-Tool"}
+                f={"https://github.com/UniPro-tech/UniPro-Git-Tool"}
                 target="_blank"
                 className="flex flex-row items-center gap-2"
               >
-                UniPro Git Tool
+                UniPro Git Tool UniPro Git Tool
                 <FaExternalLinkAlt />
               </Link>
             </h2>
             <p>
-              UniPro Git Tool is a tool to make Git commit messages more
-              pleasant. It allows you to add emojis to commit messages based on
+              UniPro Git Tool is a utility designed to enhance Git commitniPro
+              Git Tool is a tool to make Git commit messages more messages. It
+              allows users to add emojis to commit messages basedased on on
               templates and prefixes.
             </p>
           </div>
@@ -138,5 +152,4 @@ const data = {
     ),
   },
 };
-
 export default data;

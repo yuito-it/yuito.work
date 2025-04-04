@@ -89,7 +89,20 @@ const data = {
             <p>
               同好会ポータル Linkleは、UniProjectが運営する、
               N/S/R高等学校内の同好会の情報を集約するウェブサイトです。
-              同好会の情報を探す際に便利な機能が揃っています。
+              同好会の情報を探す際に便利な機能が揃っています。 このサイトは、
+              <bold className="font-bold">
+                <Link
+                  href={
+                    "https://progedu.github.io/webappcontest/2024/winter/entry/result.html"
+                  }
+                  target="_blank"
+                  className="hover:underline inline-flex items-baseline"
+                >
+                  ZEN Study 動くWebアプリコンテスト2024冬
+                  <FaExternalLinkAlt />
+                </Link>
+              </bold>
+              優秀賞を受賞しました。
             </p>
           </div>
           <div className="flex flex-grow justify-center items-center">

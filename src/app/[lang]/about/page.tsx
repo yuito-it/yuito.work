@@ -38,55 +38,65 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
 
   const dict = await getDictionary(lang);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] grid-cols-1 items-center justify-items-center min-h-screen p-8 w-full pb-20 md:gap-16 gap-20 font-[family-name:var(--font-geist-sans)]">
-      <header className="flex items-left justify-left w-full">
-        <Button<"Link">
-          href={`/${lang}`}
-          back="true"
-        >
-          {dict.common.BackHome}
-        </Button>
-      </header>
-      <main className="flex flex-col md:flex-row gap-8 row-start-2 items-center justify-center grow w-full mb-10 md:mb-0">
-        <div className="flex flex-col gap-8 justify-center md:w-1/3 md:ml-20 w-3/4">
-          <h1
-            className="text-2xl sm:text-3xl font-bold md:text-left text-center"
-            id="title"
+    <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-background text-foreground">
+      <header className="w-full px-8 py-6">
+        <div className="max-w-5xl mx-auto">
+          <Button<"Link">
+            href={`/${lang}`}
+            back="true"
           >
-            About
-          </h1>
-          <p className="text-sm text-center md:text-left font-[family-name:var(--font-geist-mono)]">
-            {dict.about.contents}
-          </p>
-          <div className="flex flex-col justify-center md:items-start items-center gap-0">
-            <Link
-              href={"https://github.com/yuito-it"}
-              target="_blank"
-              className="flex hover:underline items-center justify-center gap-1"
-            >
-              <ImGithub />
-              GitHub: @yuito-it
-            </Link>
-            <Link
-              href={"https://x.com/yuito_it_"}
-              target="_blank"
-              className="flex items-center hover:underline justify-center gap-1"
-            >
-              <ImTwitter />
-              Twitter: @yuito_it_
-            </Link>
-            <Link
-              href={"https://qiita.com/yuito_it_"}
-              target="_blank"
-              className="flex items-center hover:underline justify-center gap-1"
-            >
-              <QiitaIcon />
-              Qiita: @yuito_it_
-            </Link>
+            {dict.common.BackHome}
+          </Button>
+        </div>
+      </header>
+      <main className="w-full px-8 flex-1">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+            <div className="flex flex-col gap-6 justify-center md:w-2/3 w-full p-8 rounded-lg border border-foreground/10">
+              <h1
+                className="text-2xl sm:text-3xl font-bold md:text-left text-center pb-3 border-b border-foreground/[0.08]"
+                id="title"
+              >
+                About
+              </h1>
+              <p className="text-base leading-relaxed text-center md:text-left font-[family-name:var(--font-geist-mono)] opacity-80">
+                {dict.about.contents}
+              </p>
+              <div className="flex flex-col justify-center md:items-start items-center gap-4 pt-3">
+                <Link
+                  href={"https://github.com/yuito-it"}
+                  target="_blank"
+                  className="flex items-center justify-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
+                >
+                  <ImGithub className="text-xl" />
+                  <span className="text-base">GitHub: @yuito-it</span>
+                </Link>
+                <Link
+                  href={"https://x.com/yuito_it_"}
+                  target="_blank"
+                  className="flex items-center justify-center gap-2 opacity-80 hover:opacity-100 transition-opacity"
+                >
+                  <ImTwitter className="text-lg" />
+                  <span>Twitter: @yuito_it_</span>
+                </Link>
+                <Link
+                  href={"https://qiita.com/yuito_it_"}
+                  target="_blank"
+                  className="flex items-center justify-center gap-2 opacity-80 hover:opacity-100 transition-opacity"
+                >
+                  <QiitaIcon />
+                  <span>Qiita: @yuito_it_</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </main>
-      <Footer />
+      <footer className="w-full px-8 py-6">
+        <div className="max-w-5xl mx-auto">
+          <Footer />
+        </div>
+      </footer>
     </div>
   );
 }

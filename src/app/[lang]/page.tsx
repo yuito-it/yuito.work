@@ -54,76 +54,81 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
   console.log(lang);
   const dict = await getDictionary(lang);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-center min-h-screen p-8 pb-20 gap-20 md:gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex gap-8 md:flex-row flex-col row-start-2 items-center sm:items-start">
-        <Image
-          src={"https://avatars.githubusercontent.com/u/132048482?v=4"}
-          className="rounded-full"
-          width="80"
-          height="80"
-          alt={""}
-        />
-        <div className="flex flex-col gap-8 min-w-1/2 grow">
-          <div className="flex flex-col gap-1">
-            <h1
-              className="text-2xl sm:text-3xl md:text-left text-center font-bold"
-              id="title"
-            >
-              <ruby>
-                {dict.home.name}
-                <rp>(</rp>
-                <rt>{dict.home.ruby}</rt>
-                <rp>)</rp>
-              </ruby>
-            </h1>
-            <p className="text-sm text-center md:text-left font-[family-name:var(--font-geist-mono)]">
-              {dict.home.jobs}
-            </p>
-            <div className="flex flex-row gap-2 md:justify-start justify-center items-center w-full">
-              <Link
-                href={"https://github.com/yuito-it"}
-                target="_blank"
-              >
-                <ImGithub />
-              </Link>
-              <Link
-                href={"https://x.com/yuito_it_"}
-                target="_blank"
-              >
-                <ImTwitter />
-              </Link>
-              <Link
-                href={"https://qiita.com/yuito_it_"}
-                target="_blank"
-              >
-                <QiitaIcon />
-              </Link>
+    <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-background text-foreground">
+      <header className="w-full px-8 py-6">
+        <div className="max-w-5xl mx-auto">
+        </div>
+      </header>
+      <main className="w-full px-8 flex-1">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col items-center justify-center min-h-[calc(100vh-240px)]">
+            <div className="flex flex-col md:flex-row gap-8 items-start p-8 rounded-lg border border-foreground/10 backdrop-blur-sm">
+              <div className="relative group md:mt-2">
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur transition group-hover:opacity-30"></div>
+                <Image
+                  src={"https://avatars.githubusercontent.com/u/132048482?v=4"}
+                  className="rounded-full relative"
+                  width="100"
+                  height="100"
+                  alt={""}
+                  priority
+                />
+              </div>
+              <div className="flex flex-col gap-6 text-center md:text-left">
+                <div className="space-y-2">
+                  <h1 className="text-3xl sm:text-4xl font-bold" id="title">
+                    <ruby>
+                      {dict.home.name}
+                      <rp>(</rp>
+                      <rt className="opacity-70 text-sm">{dict.home.ruby}</rt>
+                      <rp>)</rp>
+                    </ruby>
+                  </h1>
+                  <p className="text-base font-[family-name:var(--font-geist-mono)] opacity-80">
+                    {dict.home.jobs}
+                  </p>
+                </div>
+                <div className="flex gap-4 justify-center md:justify-start items-center">
+                  <Link
+                    href={"https://github.com/yuito-it"}
+                    target="_blank"
+                    className="opacity-70 hover:opacity-100 transition-opacity"
+                  >
+                    <ImGithub className="text-xl" />
+                  </Link>
+                  <Link
+                    href={"https://x.com/yuito_it_"}
+                    target="_blank"
+                    className="opacity-70 hover:opacity-100 transition-opacity"
+                  >
+                    <ImTwitter className="text-xl" />
+                  </Link>
+                  <Link
+                    href={"https://qiita.com/yuito_it_"}
+                    target="_blank"
+                    className="opacity-70 hover:opacity-100 transition-opacity"
+                  >
+                    <QiitaIcon />
+                  </Link>
+                </div>
+                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                  <Button<"Link"> href={`/${lang}/about`}>About</Button>
+                  <Button<"Link"> href={`/${lang}/works`}>Works</Button>
+                  <Button<"Link"> href={`/${lang}/contacts`}>Contact</Button>
+                </div>
+                <div className="w-full opacity-80">
+                  <NowPlayingWidget />
+                </div>
+              </div>
             </div>
-          </div>
-          <NowPlayingWidget />
-          <div className="flex gap-1 items-center flex-col sm:flex-row">
-            <Button<"Link">
-              href={`/${lang}/about`}
-              rel="noopener noreferrer"
-            >
-              {dict.home.button.about}
-            </Button>
-            <Button<"Link">
-              href={`/${lang}/works`}
-              rel="noopener noreferrer"
-            >
-              {dict.home.button.works}
-            </Button>
-            <Button<"Link">
-              href={`/${lang}/contacts`}
-              rel="noopener noreferrer"
-            >
-              {dict.home.button.contacts}
-            </Button>
           </div>
         </div>
       </main>
-      <Footer />
+      <footer className="w-full px-8 py-6">
+        <div className="max-w-5xl mx-auto">
+          <Footer />
+        </div>
+      </footer>
     </div>
   );
 }

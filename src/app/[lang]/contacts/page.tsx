@@ -39,47 +39,57 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
 
   const dict = await getDictionary(lang);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] grid-cols-1 items-center justify-center min-h-screen w-full p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <header className="flex items-left justify-left w-full">
-        <Button<"Link">
-          href={`/${lang}`}
-          back="true"
-        >
-          {dict.common.BackHome}
-        </Button>
-      </header>
-      <main className="flex flex-col md:flex-row gap-8 row-start-2 items-center justify-center grow w-full mb-10 md:mb-0">
-        <div className="flex flex-col gap-8 justify-center max-w-1/2">
-          <h1
-            className="text-2xl sm:text-3xl text-center font-bold md:text-left"
-            id="title"
+    <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-background text-foreground">
+      <header className="w-full px-8 py-6">
+        <div className="max-w-5xl mx-auto">
+          <Button<"Link">
+            href={`/${lang}`}
+            back="true"
           >
-            Contact
-          </h1>
-          <p className="text-sm text-center md:text-left font-[family-name:var(--font-geist-mono)]">
-            {dict.contacts.contents}
-          </p>
-          <div className="flex flex-col justify-center items-center md:items-start gap-0">
-            <Link
-              href={"https://x.com/yuito_it_"}
-              target="_blank"
-              className="flex hover:underline items-center justify-center gap-1"
-            >
-              <ImTwitter />
-              Twitter: @yuito_it_(DM)
-            </Link>
-            <Link
-              href={"mailto:yuito@yuito-it.jp"}
-              target="_blank"
-              className="flex hover:underline items-center justify-center gap-1"
-            >
-              <ImMail />
-              Mail: yuito[at]yuito-it.jp
-            </Link>
+            {dict.common.BackHome}
+          </Button>
+        </div>
+      </header>
+      <main className="w-full px-8 flex-1">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col gap-8 items-center justify-center">
+            <div className="flex flex-col gap-6 justify-center md:w-2/3 w-full p-8 rounded-lg border border-foreground/10">
+              <h1
+                className="text-2xl sm:text-3xl font-bold md:text-left text-center pb-3 border-b border-foreground/[0.08]"
+                id="title"
+              >
+                Contact
+              </h1>
+              <p className="text-base leading-relaxed text-center md:text-left font-[family-name:var(--font-geist-mono)] opacity-80">
+                {dict.contacts.contents}
+              </p>
+              <div className="flex flex-col justify-center md:items-start items-center gap-4 pt-3">
+                <Link
+                  href={"https://x.com/yuito_it_"}
+                  target="_blank"
+                  className="flex items-center justify-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
+                >
+                  <ImTwitter className="text-xl" />
+                  <span className="text-base">Twitter: @yuito_it_ (DM)</span>
+                </Link>
+                <Link
+                  href={"mailto:yuito@yuito-it.jp"}
+                  target="_blank"
+                  className="flex items-center justify-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
+                >
+                  <ImMail className="text-xl" />
+                  <span className="text-base">Mail: yuito[at]yuito-it.jp</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </main>
-      <Footer />
+      <footer className="w-full px-8 py-6">
+        <div className="max-w-5xl mx-auto">
+          <Footer />
+        </div>
+      </footer>
     </div>
   );
 }

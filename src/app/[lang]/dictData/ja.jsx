@@ -14,6 +14,7 @@ const data = {
       works: "Works",
       contacts: "Contacts",
     },
+    friendLinks: "相互リンク",
   },
   contacts: {
     title: "Contacts",
@@ -45,6 +46,7 @@ const data = {
   works: {
     title: "Works",
     description: "私が今まで制作したり関わったものの一覧です。",
+    friendLinks: "相互リンク",
     contents: (
       <div className="space-y-4 p-5">
         <section className="flex flex-col md:flex-row gap-4">

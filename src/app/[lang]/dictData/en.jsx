@@ -5,15 +5,16 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 const data = {
   home: {
     title: "Yuito Akatsuki - Digital Creator",
-    description: "This is Akatsuki Yuito's website.",
+    description: "This is Yuito Akatsuki's website.",
     name: "Yuito Akatsuki",
     ruby: null,
-    jobs: "Founder of UniProject / Digital Creator / Web Developer / Infrastructure Engineer / Project Manager",
+    jobs: "UniProject Founder / Digital Creator / Web Engineer / Infrastructure Engineer / Project Manager",
     button: {
-      about: "Learn more...",
+      about: "About more...",
       works: "Works",
       contacts: "Contacts",
     },
+    friendLinks: "Friend Links",
   },
   contacts: {
     title: "Contacts",
@@ -46,7 +47,8 @@ const data = {
   },
   works: {
     title: "Works",
-    description: "A list of projects I have created or been involved in.",
+    description: "Here's a list of things I've created or been involved with.",
+    friendLinks: "Friend Links",
     contents: (
       <div className="space-y-4 p-5">
         <section className="flex flex-col md:flex-row gap-4">

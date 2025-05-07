@@ -8,6 +8,8 @@ import Footer from "@/components/footer";
 import { Metadata } from "next";
 import { Locale } from "@/i18n-config";
 import { getDictionary } from "./dictionaries";
+import BannerLinkSection from "@/components/sections/bannerLinkSection";
+import TextLinkSection from "@/components/sections/textLinkSection";
 
 export async function generateMetadata(props: {
   params: Promise<{ lang: Locale }>;
@@ -48,11 +50,9 @@ export const dynamic = "force-dynamic";
 
 export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
   const params = await props.params;
-
   const { lang } = params;
-
-  console.log(lang);
   const dict = await getDictionary(lang);
+
   return (
     <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-background text-foreground">
       <header className="w-full px-8 py-6">
@@ -60,7 +60,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
       </header>
       <main className="w-full px-4 sm:px-8 flex-1">
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col items-center justify-center min-h-[calc(100vh-240px)]">
+          <div className="flex flex-col items-center justify-center min-h-[calc(100vh-240px)] gap-8">
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start p-4 sm:p-8 rounded-lg border border-foreground/10 backdrop-blur-sm w-full md:w-auto">
               <div className="relative group mx-auto md:mx-0">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur transition group-hover:opacity-30"></div>
@@ -120,6 +120,18 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                 </div>
                 <div className="w-full opacity-80">
                   <NowPlayingWidget />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-6 md:gap-8 w-full">
+              <div className="flex flex-col gap-4 p-4 sm:p-8 rounded-lg border border-foreground/10">
+                <h2 className="text-xl font-bold pb-3 border-b border-foreground/[0.08]">
+                  {dict.home.friendLinks}
+                </h2>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  <BannerLinkSection />
+                  <TextLinkSection />
                 </div>
               </div>
             </div>

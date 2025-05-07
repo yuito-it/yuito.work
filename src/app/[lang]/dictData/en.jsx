@@ -21,6 +21,7 @@ const data = {
     contents: "Please contact me using the methods below. Replace [at] with @.",
   },
   common: {
+    title: "Yuito Akatsuki",
     BackHome: "Back to Home",
   },
   about: {

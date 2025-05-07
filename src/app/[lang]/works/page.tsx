@@ -13,12 +13,21 @@ export async function generateMetadata(props: {
 
   const dict = await getDictionary(lang);
   const res: Metadata = {
-    title: `${dict.works.title} - あかつきゆいとHP`,
+    title: `${dict.works.title} - ${dict.common.title}`,
     description: dict.works.description,
+    openGraph: {
+      title: dict.home.title,
+      description: dict.home.description,
+      url: `https://ゆいと.jp/${lang}`,
+    },
+    twitter: {
+      card: "summary",
+      title: dict.home.title,
+      description: dict.home.description,
+      site: "@yuito_it_",
+      creator: "@yuito_it_",
+    },
   };
-  if (lang === "ja") {
-    return res;
-  }
   res.alternates = {
     canonical: `https://ゆいと.jp/about`,
     languages: {

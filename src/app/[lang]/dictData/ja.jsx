@@ -21,6 +21,7 @@ const data = {
     contents: "ご連絡は以下の方法でお願いします。[at]は@に変更してください。",
   },
   common: {
+    title: "あかつきゆいと",
     BackHome: "ホームに戻る",
   },
   about: {

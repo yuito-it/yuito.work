@@ -21,10 +21,20 @@ export async function generateMetadata(props: {
   const res: Metadata = {
     title: `${dict.home.title}`,
     description: dict.home.description,
+    themeColor: "#80604b",
+    openGraph: {
+      title: dict.home.title,
+      description: dict.home.description,
+      url: `https://ゆいと.jp/${lang}`,
+    },
+    twitter: {
+      card: "summary",
+      title: dict.home.title,
+      description: dict.home.description,
+      site: "@yuito_it_",
+      creator: "@yuito_it_",
+    },
   };
-  if (lang === "ja") {
-    return res;
-  }
   res.alternates = {
     canonical: `https://ゆいと.jp/`,
     languages: {

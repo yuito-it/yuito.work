@@ -19,14 +19,10 @@ if (!fs.existsSync(path.dirname(tokensPath))) {
 let access_token: string;
 let refresh_token: string;
 if (fs.existsSync(tokensPath)) {
-  ({ access_token, refresh_token } = JSON.parse(
-    fs.readFileSync(tokensPath, "utf8")
-  ));
+  ({ access_token, refresh_token } = JSON.parse(fs.readFileSync(tokensPath, "utf8")));
 }
 
-const basic_authorization = Buffer.from(
-  `${client_id}:${client_secret}`
-).toString("base64");
+const basic_authorization = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 
 export async function setSpotifyStatus() {
   let now_playing_temp = null;
@@ -62,11 +58,9 @@ export async function getFirstAccessTokenToSpotify(code = authorization_code) {
   });
 
   try {
-    const response = await axios.post(
-      "https://accounts.spotify.com/api/token",
-      payload,
-      { headers }
-    );
+    const response = await axios.post("https://accounts.spotify.com/api/token", payload, {
+      headers,
+    });
     const data = response.data;
     access_token = data.access_token;
     refresh_token = data.refresh_token;
@@ -101,11 +95,9 @@ async function refreshAccessTokenToSpotify() {
   });
 
   try {
-    const response = await axios.post(
-      "https://accounts.spotify.com/api/token",
-      payload,
-      { headers }
-    );
+    const response = await axios.post("https://accounts.spotify.com/api/token", payload, {
+      headers,
+    });
     const data = response.data;
     access_token = data.access_token;
     if (data.refresh_token) {
@@ -122,10 +114,7 @@ async function refreshAccessTokenToSpotify() {
     fs.writeFileSync(tokensPath, tokens);
   } catch (error) {
     const err = error as any;
-    console.error(
-      "Error refreshing access token:",
-      err.response?.data || err.message
-    );
+    console.error("Error refreshing access token:", err.response?.data || err.message);
     return 1;
   }
 }
@@ -139,11 +128,7 @@ async function getNowPlaying() {
     });
 
     if (response.status === 200) {
-      const json = JSON.stringify(
-        { data: response.data, timestamp: Date.now() },
-        null,
-        " "
-      );
+      const json = JSON.stringify({ data: response.data, timestamp: Date.now() }, null, " ");
       if (response.data.device.is_private_session) {
         console.log("Private session, return null.");
         return null;
@@ -155,14 +140,11 @@ async function getNowPlaying() {
     }
   } catch (error: any) {
     if (error.response?.status === 401) {
-      if (await refreshAccessTokenToSpotify() == 1) return null;
+      if ((await refreshAccessTokenToSpotify()) == 1) return null;
       return await getNowPlaying();
     } else {
       const err = error as any;
-      console.error(
-        "Error getting now playing:",
-        err.response?.data || err.message
-      );
+      console.error("Error getting now playing:", err.response?.data || err.message);
     }
   }
 }

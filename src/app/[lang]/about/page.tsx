@@ -31,9 +31,7 @@ export async function generateMetadata(props: {
   return res;
 }
 
-export default async function Home(props: {
-  params: Promise<{ lang: Locale }>;
-}) {
+export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
   const params = await props.params;
 
   const { lang } = params;
@@ -42,7 +40,10 @@ export default async function Home(props: {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] grid-cols-1 items-center justify-items-center min-h-screen p-8 w-full pb-20 md:gap-16 gap-20 font-[family-name:var(--font-geist-sans)]">
       <header className="flex items-left justify-left w-full">
-        <Button<"Link"> href={`/${lang}`} back="true">
+        <Button<"Link">
+          href={`/${lang}`}
+          back="true"
+        >
           {dict.common.BackHome}
         </Button>
       </header>

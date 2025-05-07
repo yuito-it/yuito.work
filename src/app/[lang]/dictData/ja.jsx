@@ -93,9 +93,7 @@ const data = {
               同好会の情報を探す際に便利な機能が揃っています。 このサイトは、
               <bold className="font-bold">
                 <Link
-                  href={
-                    "https://progedu.github.io/webappcontest/2024/winter/entry/result.html"
-                  }
+                  href={"https://progedu.github.io/webappcontest/2024/winter/entry/result.html"}
                   target="_blank"
                   className="hover:underline inline-flex items-baseline"
                 >
@@ -137,8 +135,7 @@ const data = {
               </Link>
             </h2>
             <p>
-              UniPro Git
-              ToolはGitのコミットメッセージをいいかんじにするためのツールです。
+              UniPro Git ToolはGitのコミットメッセージをいいかんじにするためのツールです。
               コミットメッセージのテンプレートや、コミットメッセージのprefixに応じて、絵文字を追加できるようになっています。
             </p>
           </div>

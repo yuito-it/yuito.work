@@ -29,10 +29,9 @@ const data = {
     description: "Introduction",
     contents: (
       <>
-        Yuito Akatsuki is a Digital Creator, Web Developer, Infrastructure
-        Engineer, and Project Manager. Born in 2009, he is currently a student
-        at S High School in Japan. He is also the founder of the All-Japan
-        Digital Circle{" "}
+        Yuito Akatsuki is a Digital Creator, Web Developer, Infrastructure Engineer, and Project
+        Manager. Born in 2009, he is currently a student at S High School in Japan. He is also the
+        founder of the All-Japan Digital Circle{" "}
         <Link
           href={"https://uniproject.jp"}
           target="_blank"
@@ -71,9 +70,9 @@ const data = {
               </Link>
             </h2>
             <p>
-              UniProject is an online community created to provide a space for
-              digital creators to exchange ideas and collaborate. We work on
-              various projects, including websites, applications, and videos.
+              UniProject is an online community created to provide a space for digital creators to
+              exchange ideas and collaborate. We work on various projects, including websites,
+              applications, and videos.
             </p>
           </div>
         </section>
@@ -91,15 +90,12 @@ const data = {
               </Link>
             </h2>
             <p>
-              Club Portal Linkle is a website managed by UniProject that
-              aggregates information about clubs within N/S/R High School. It
-              provides convenient features for finding club information. This
-              project received the Excellence Award at the{" "}
+              Club Portal Linkle is a website managed by UniProject that aggregates information
+              about clubs within N/S/R High School. It provides convenient features for finding club
+              information. This project received the Excellence Award at the{" "}
               <bold className="font-bold">
                 <Link
-                  href={
-                    "https://progedu.github.io/webappcontest/2024/winter/entry/result.html"
-                  }
+                  href={"https://progedu.github.io/webappcontest/2024/winter/entry/result.html"}
                   target="_blank"
                   arget="_blank"
                   className="hover:underline inline-flex items-baseliner:underline inline-flex items-baseline"
@@ -142,10 +138,9 @@ const data = {
               </Link>
             </h2>
             <p>
-              UniPro Git Tool is a utility designed to enhance Git commitniPro
-              Git Tool is a tool to make Git commit messages more messages. It
-              allows users to add emojis to commit messages basedased on on
-              templates and prefixes.
+              UniPro Git Tool is a utility designed to enhance Git commitniPro Git Tool is a tool to
+              make Git commit messages more messages. It allows users to add emojis to commit
+              messages basedased on on templates and prefixes.
             </p>
           </div>
         </section>

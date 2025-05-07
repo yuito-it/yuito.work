@@ -46,9 +46,7 @@ export async function generateMetadata(props: {
 
 export const dynamic = "force-dynamic";
 
-export default async function Home(props: {
-  params: Promise<{ lang: Locale }>;
-}) {
+export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
   const params = await props.params;
 
   const { lang } = params;
@@ -82,23 +80,38 @@ export default async function Home(props: {
               {dict.home.jobs}
             </p>
             <div className="flex flex-row gap-2 md:justify-start justify-center items-center w-full">
-              <Link href={"https://github.com/yuito-it"} target="_blank">
+              <Link
+                href={"https://github.com/yuito-it"}
+                target="_blank"
+              >
                 <ImGithub />
               </Link>
-              <Link href={"https://x.com/yuito_it_"} target="_blank">
+              <Link
+                href={"https://x.com/yuito_it_"}
+                target="_blank"
+              >
                 <ImTwitter />
               </Link>
-              <Link href={"https://qiita.com/yuito_it_"} target="_blank">
+              <Link
+                href={"https://qiita.com/yuito_it_"}
+                target="_blank"
+              >
                 <QiitaIcon />
               </Link>
             </div>
           </div>
           <NowPlayingWidget />
           <div className="flex gap-1 items-center flex-col sm:flex-row">
-            <Button<"Link"> href={`/${lang}/about`} rel="noopener noreferrer">
+            <Button<"Link">
+              href={`/${lang}/about`}
+              rel="noopener noreferrer"
+            >
               {dict.home.button.about}
             </Button>
-            <Button<"Link"> href={`/${lang}/works`} rel="noopener noreferrer">
+            <Button<"Link">
+              href={`/${lang}/works`}
+              rel="noopener noreferrer"
+            >
               {dict.home.button.works}
             </Button>
             <Button<"Link">

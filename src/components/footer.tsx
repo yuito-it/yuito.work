@@ -39,9 +39,7 @@ export default function footer() {
           Go to UniProject
         </a>
       </div>
-      <span className="text-center">
-        &copy;2024-2025 YuitoAkatsuki All rights reserved.
-      </span>
+      <span className="text-center">&copy;2024-2025 YuitoAkatsuki All rights reserved.</span>
     </footer>
   );
 }

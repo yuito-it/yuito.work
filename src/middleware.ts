@@ -14,9 +14,7 @@ function getLocale(request: NextRequest): string | undefined {
   const locales: string[] = [...i18n.locales];
 
   // Negotiator と intl-localematcher を使用して最適なロケールを取得
-  const languages = new Negotiator({ headers: negotiatorHeaders }).languages(
-    locales
-  );
+  const languages = new Negotiator({ headers: negotiatorHeaders }).languages(locales);
 
   const locale = matchLocale(languages, locales, i18n.defaultLocale);
 
@@ -27,15 +25,8 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   // `/_next/` と `/api/` はウォッチャーによって無視されますが、`public` 内のファイルは手動で無視する必要があります。
   // もし存在する場合
-  if (
-    [
-      '/manifest.json',
-      '/favicon.ico',
-      '/robots.txt',
-      '/sitemap.xml',
-      '/img'
-    ].includes(pathname)
-  ) return;
+  if (["/manifest.json", "/favicon.ico", "/robots.txt", "/sitemap.xml", "/img"].includes(pathname))
+    return;
 
   // パス名にサポートされているロケールが含まれているかどうかを確認
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -49,10 +40,7 @@ export function middleware(request: NextRequest) {
     // 例えば、リクエストが /products の場合
     // 新しいURLは /en-US/products になります
     return NextResponse.redirect(
-      new URL(
-        `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
-        request.url
-      )
+      new URL(`/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`, request.url)
     );
   }
 }

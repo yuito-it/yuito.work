@@ -56,14 +56,13 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
   return (
     <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-background text-foreground">
       <header className="w-full px-8 py-6">
-        <div className="max-w-5xl mx-auto">
-        </div>
+        <div className="max-w-5xl mx-auto"></div>
       </header>
-      <main className="w-full px-8 flex-1">
+      <main className="w-full px-4 sm:px-8 flex-1">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col items-center justify-center min-h-[calc(100vh-240px)]">
-            <div className="flex flex-col md:flex-row gap-8 items-start p-8 rounded-lg border border-foreground/10 backdrop-blur-sm">
-              <div className="relative group md:mt-2">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start p-4 sm:p-8 rounded-lg border border-foreground/10 backdrop-blur-sm w-full md:w-auto">
+              <div className="relative group mx-auto md:mx-0">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur transition group-hover:opacity-30"></div>
                 <Image
                   src={"https://avatars.githubusercontent.com/u/132048482?v=4"}
@@ -74,9 +73,12 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                   priority
                 />
               </div>
-              <div className="flex flex-col gap-6 text-center md:text-left">
+              <div className="flex flex-col gap-4 md:gap-6 text-center md:text-left w-full">
                 <div className="space-y-2">
-                  <h1 className="text-3xl sm:text-4xl font-bold" id="title">
+                  <h1
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold"
+                    id="title"
+                  >
                     <ruby>
                       {dict.home.name}
                       <rp>(</rp>
@@ -84,7 +86,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                       <rp>)</rp>
                     </ruby>
                   </h1>
-                  <p className="text-base font-[family-name:var(--font-geist-mono)] opacity-80">
+                  <p className="text-sm sm:text-base font-[family-name:var(--font-geist-mono)] opacity-80">
                     {dict.home.jobs}
                   </p>
                 </div>

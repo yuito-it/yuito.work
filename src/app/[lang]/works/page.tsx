@@ -45,7 +45,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
   const dict = await getDictionary(lang);
   return (
     <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-background text-foreground">
-      <header className="w-full px-8 py-6">
+      <header className="w-full px-4 sm:px-8 py-6">
         <div className="max-w-5xl mx-auto">
           <Button<"Link">
             href={`/${lang}`}
@@ -55,21 +55,19 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
           </Button>
         </div>
       </header>
-      <main className="w-full px-8 flex-1">
+      <main className="w-full px-4 sm:px-8 flex-1">
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col gap-4 p-8 rounded-lg border border-foreground/10">
-            <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4 p-4 sm:p-8 rounded-lg border border-foreground/10">
+            <div className="flex flex-col gap-2">
               <h1
-                className="text-3xl sm:text-4xl font-bold pb-4 border-b border-foreground/[0.08]"
+                className="text-2xl sm:text-3xl font-bold pb-3 border-b border-foreground/[0.08]"
                 id="title"
               >
                 Works
               </h1>
               <p className="opacity-80 text-sm max-w-2xl">{dict.works.description}</p>
             </div>
-            <div className="opacity-90 pt-4">
-              {dict.works.contents}
-            </div>
+            <div className="opacity-90 pt-4">{dict.works.contents}</div>
           </div>
         </div>
       </main>

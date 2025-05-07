@@ -23,7 +23,6 @@ export async function generateMetadata(props: {
   const res: Metadata = {
     title: `${dict.home.title}`,
     description: dict.home.description,
-    themeColor: "#80604b",
     openGraph: {
       title: dict.home.title,
       description: dict.home.description,
@@ -45,6 +44,12 @@ export async function generateMetadata(props: {
   };
   return res;
 }
+
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#80604b",
+};
 
 export const dynamic = "force-dynamic";
 

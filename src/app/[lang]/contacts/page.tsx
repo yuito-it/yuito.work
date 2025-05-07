@@ -32,6 +32,12 @@ export async function generateMetadata(props: {
   return res;
 }
 
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#80604b",
+};
+
 export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
   const params = await props.params;
 

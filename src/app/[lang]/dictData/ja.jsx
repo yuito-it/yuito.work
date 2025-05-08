@@ -4,8 +4,9 @@ import Image from "next/image";
 
 const data = {
   home: {
-    title: "あかつきゆいと - デジタルクリエイター",
-    description: "あかつきゆいとのウェブサイトです。",
+    title: "yuitopia(ユイトピア) - あかつきゆいと 公式ウェブサイト",
+    description:
+      "デジタルの中に自分だけの世界を描く。あかつきゆいとが手がける創作の記録、ちょっと不思議で自由なユートピア。",
     name: "曙 唯人",
     ruby: "あかつき ゆいと",
     jobs: "UniProject創設者 / デジタルクリエイター / Webエンジニア / インフラエンジニア / プロジェクトマネージャー",
@@ -13,6 +14,13 @@ const data = {
       about: "About more...",
       works: "Works",
       contacts: "Contacts",
+    },
+    aboutSite: {
+      title: "このサイトについて",
+      description: `yuitopia（ユイトピア）は、あかつきゆいとの創作を詰め込んだデジタルの箱庭です。
+Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
+自分だけの「好き」を自由に表現し、記録していく場所として、このサイトをつくりました。
+少し不思議で、ちょっと遊び心のある世界を、どうぞのぞいてみてください。`,
     },
     friendLinks: "相互リンク",
   },

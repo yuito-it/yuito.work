@@ -66,7 +66,10 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
       <main className="w-full px-4 sm:px-8 flex-1">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col items-center justify-center min-h-[calc(100vh-240px)] gap-8">
-            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start p-4 sm:p-8 rounded-lg border border-foreground/10 backdrop-blur-sm w-full md:w-auto">
+            <section
+              id="about"
+              className="flex flex-col md:flex-row gap-6 md:gap-8 items-start p-4 sm:p-8 rounded-lg border border-foreground/10 backdrop-blur-sm w-full md:w-auto"
+            >
               <div className="relative group mx-auto md:mx-0">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur transition group-hover:opacity-30"></div>
                 <Image
@@ -127,9 +130,16 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                   <NowPlayingWidget />
                 </div>
               </div>
-            </div>
-
-            <div className="flex flex-col gap-6 md:gap-8 w-full">
+            </section>
+            <section className="flex flex-col gap-4 p-4 sm:p-8 rounded-lg border border-foreground/10 w-full">
+              <h2 className="text-xl font-bold pb-3 border-b border-foreground/[0.08]">
+                {dict.home.aboutSite.title}
+              </h2>
+              <p className="text-base opacity-80 whitespace-pre-wrap">
+                {dict.home.aboutSite.description}
+              </p>
+            </section>
+            <section className="flex flex-col gap-6 md:gap-8 w-full">
               <div className="flex flex-col gap-4 p-4 sm:p-8 rounded-lg border border-foreground/10">
                 <h2 className="text-xl font-bold pb-3 border-b border-foreground/[0.08]">
                   {dict.home.friendLinks}
@@ -139,7 +149,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                   <TextLinkSection />
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </main>

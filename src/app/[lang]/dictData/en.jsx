@@ -4,8 +4,9 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const data = {
   home: {
-    title: "Yuito Akatsuki - Digital Creator",
-    description: "This is Yuito Akatsuki's website.",
+    title: "yuitopia - Yuito Akatsuki's Official Website",
+    description:
+      "Drawing my own universe in the digital realm. A creative diary by Yuito Akatsuki — whimsical, boundless, and uniquely mine.",
     name: "Yuito Akatsuki",
     ruby: null,
     jobs: "UniProject Founder / Digital Creator / Web Engineer / Infrastructure Engineer / Project Manager",
@@ -13,6 +14,12 @@ const data = {
       about: "About more...",
       works: "Works",
       contacts: "Contacts",
+    },
+    aboutSite: {
+      title: "About This Site",
+      description: `yuitopia is a digital garden where I, Yuito Akatsuki, gather my creations.
+From web development to app experiments and playful ideas—this is a space where I freely explore and express what I love.
+Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
     },
     friendLinks: "Friend Links",
   },

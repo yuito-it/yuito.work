@@ -17,7 +17,7 @@ export async function generateMetadata(props: {
   const dict = await getDictionary(lang);
 
   const res: Metadata = {
-    title: `${dict.contacts.title} - あかつきゆいとHP`,
+    title: `${dict.contacts.title} - yuitopia${lang === "ja" ? "" : " (ユイトピア)"}`,
     description: dict.contacts.description,
   };
   if (lang === "ja") {

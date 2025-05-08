@@ -13,7 +13,7 @@ export async function generateMetadata(props: {
 
   const dict = await getDictionary(lang);
   const res: Metadata = {
-    title: `${dict.works.title} - ${dict.common.title}`,
+    title: `${dict.works.title} - yuitopia${lang === "ja" ? "" : " (ユイトピア)"}`,
     description: dict.works.description,
     openGraph: {
       title: dict.home.title,

@@ -134,7 +134,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                 <h2 className="text-xl font-bold pb-3 border-b border-foreground/[0.08]">
                   {dict.home.friendLinks}
                 </h2>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-4 sm:grid-cols-6 lg:grid-cols-9 content-start">
                   <BannerLinkSection />
                   <TextLinkSection />
                 </div>

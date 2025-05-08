@@ -9,7 +9,7 @@ export interface TextLinkProps {
 
 export default function TextLink({ name, url, description }: TextLinkProps) {
   return (
-    <div className="group">
+    <div className="group col-span-3">
       <Link
         href={url}
         target="_blank"

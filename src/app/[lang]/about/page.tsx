@@ -18,14 +18,24 @@ export async function generateMetadata(props: {
   const res: Metadata = {
     title: `${dict.about.title} - yuitopia${lang === "ja" ? "" : " (ユイトピア)"}`,
     description: dict.about.description,
-  };
-  if (lang === "ja") {
-    return res;
-  }
-  res.alternates = {
-    canonical: `https://ゆいと.jp/about`,
-    languages: {
-      ja: "https://yuito-it.jp/ja/about",
+    openGraph: {
+      title: dict.about.title,
+      description: dict.about.description,
+      url: `https://ゆいと.jp/${lang}/about`,
+    },
+    twitter: {
+      card: "summary",
+      title: dict.about.title,
+      description: dict.about.description,
+      site: "@yuito_it_",
+      creator: "@yuito_it_",
+    },
+    alternates: {
+      canonical: `https://ゆいと.jp/about`,
+      languages: {
+        ja: "https://yuito-it.jp/ja/about",
+        en: "https://yuito-it.jp/en/about",
+      },
     },
   };
   return res;

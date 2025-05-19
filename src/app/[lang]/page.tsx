@@ -35,11 +35,12 @@ export async function generateMetadata(props: {
       site: "@yuito_it_",
       creator: "@yuito_it_",
     },
-  };
-  res.alternates = {
-    canonical: `https://ゆいと.jp/`,
-    languages: {
-      ja: "https://yuito-it.jp/ja",
+    alternates: {
+      canonical: `https://ゆいと.jp/`,
+      languages: {
+        ja: "https://yuito-it.jp/ja",
+        en: "https://yuito-it.jp/en",
+      },
     },
   };
   return res;

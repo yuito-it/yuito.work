@@ -32,6 +32,7 @@ export async function generateMetadata(props: {
     canonical: `https://ゆいと.jp/about`,
     languages: {
       ja: "https://yuito-it.jp/ja/about",
+      en: "https://yuito-it.jp/en/about",
     },
   };
   return res;

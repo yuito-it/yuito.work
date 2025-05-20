@@ -107,7 +107,7 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
                   href={"https://progedu.github.io/webappcontest/2024/winter/entry/result.html"}
                   target="_blank"
                   arget="_blank"
-                  className="hover:underline inline-flex items-baseliner:underline inline-flex items-baseline"
+                  className="hover:underline items-baseliner:underline inline-flex items-baseline"
                 >
                   ZEN Study Moving Web App Contest Winter 2024 ZEN Study
                   <FaExternalLinkAlt />

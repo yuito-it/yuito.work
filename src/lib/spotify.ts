@@ -42,7 +42,7 @@ export async function setSpotifyStatus() {
 export async function getFirstAccessTokenToSpotify(code = authorization_code) {
   try {
     const response = await fetch("https://accounts.spotify.com/api/token", {
-      next: { revalidate: 60 },
+      next: { revalidate: 30 },
       method: "POST",
       headers: {
         Authorization: "Basic " + basic_authorization,
@@ -80,7 +80,7 @@ export async function getFirstAccessTokenToSpotify(code = authorization_code) {
 async function refreshAccessTokenToSpotify() {
   try {
     const response = await fetch("https://accounts.spotify.com/api/token", {
-      next: { revalidate: 60 },
+      next: { revalidate: 30 },
       method: "POST",
       headers: {
         Authorization: "Basic " + basic_authorization,
@@ -117,7 +117,7 @@ async function refreshAccessTokenToSpotify() {
 async function getNowPlaying() {
   try {
     const response = await fetch("https://api.spotify.com/v1/me/player", {
-      next: { revalidate: 60 },
+      next: { revalidate: 30 },
       headers: {
         Authorization: `Bearer ${access_token}`,
       },

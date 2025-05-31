@@ -36,6 +36,18 @@ spec:
               httpHeaders:
                 - name: X-k8s-Header
                   value: readiness
+          livenessProbe:
+            failureThreshold: 3
+            timeoutSeconds: 5
+            successThreshold: 1
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            httpGet:
+              path: /
+              port: default-port
+              httpHeaders:
+                - name: X-k8s-Header
+                  value: readiness
       imagePullSecrets:
         - name: harbor-registry-secret
       volumes:

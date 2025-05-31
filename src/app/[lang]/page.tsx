@@ -11,6 +11,8 @@ import { getDictionary } from "./dictionaries";
 import BannerLinkSection from "@/components/sections/bannerLinkSection";
 import TextLinkSection from "@/components/sections/textLinkSection";
 
+export const revalidate = 10;
+
 export async function generateMetadata(props: {
   params: Promise<{ lang: Locale }>;
 }): Promise<Metadata> {

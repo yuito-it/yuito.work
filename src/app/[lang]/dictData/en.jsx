@@ -83,6 +83,7 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
               exchange ideas and collaborate. We work on various projects, including websites,
               applications, and videos.
             </p>
+            <span>(c) 2024-2025 UniProject. Used under CC BY-NC-SA 4.0</span>
           </div>
         </section>
         <hr />
@@ -151,6 +152,37 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
               make Git commit messages more messages. It allows users to add emojis to commit
               messages basedased on on templates and prefixes.
             </p>
+          </div>
+          <span>(c) 2024 UniProject. Used under CC BY-NC-SA 4.0</span>
+        </section>
+        <hr />
+        <section className="flex flex-col md:flex-row gap-4">
+          <div className="md:w-3/5">
+            <h2 className="text-2xl">
+              <Link
+                href={"https://security-camp.or.jp"}
+                target="_blank"
+                className="flex flex-row items-center gap-2"
+              >
+                Security Camp Association
+                <FaExternalLinkAlt />
+              </Link>
+            </h2>
+            <p>
+              Security Camp Association is a general incorporated association that conducts
+              initiatives to discover and nurture young information security talent from Japan who
+              can compete globally. I am a member of the community support group of this
+              organization.
+            </p>
+            <span>Copyright(C)Security Camp</span>
+          </div>
+          <div className="flex flex-grow justify-center items-center">
+            <Image
+              src="/img/security-camp.png"
+              alt="Security Camp Association"
+              height={150}
+              width={150}
+            />
           </div>
         </section>
       </div>

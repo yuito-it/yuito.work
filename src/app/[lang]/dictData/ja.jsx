@@ -62,8 +62,8 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
             <Image
               src="/img/UniPro_Logo.webp"
               alt="UniProject"
-              height={150}
-              width={150}
+              height={130}
+              width={130}
             />
           </div>
           <div className="md:w-3/5 order-1 md:order-2">
@@ -82,6 +82,7 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
               気軽に交流できる場所を目指してつくられたオンラインサークルです。
               ウェブサイト、アプリケーション、ビデオの制作など、様々なプロジェクトに取り組んでいます。
             </p>
+            <span>(c) 2024-2025 UniProject. Used under CC BY-NC-SA 4.0</span>
           </div>
         </section>
         <hr />
@@ -89,7 +90,7 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
           <div className="md:w-3/5">
             <h2 className="text-2xl">
               <Link
-                href={"https://linkle.nnn.uniproject.jp"}
+                href={"https://linkle.unipro-n.com"}
                 target="_blank"
                 className="flex flex-row items-center gap-2"
               >
@@ -148,6 +149,35 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
               UniPro Git ToolはGitのコミットメッセージをいいかんじにするためのツールです。
               コミットメッセージのテンプレートや、コミットメッセージのprefixに応じて、絵文字を追加できるようになっています。
             </p>
+            <span>(c) 2024 UniProject. Used under CC BY-NC-SA 4.0</span>
+          </div>
+        </section>
+        <hr />
+        <section className="flex flex-col md:flex-row gap-4">
+          <div className="md:w-3/5">
+            <h2 className="text-2xl">
+              <Link
+                href={"https://security-camp.or.jp"}
+                target="_blank"
+                className="flex flex-row items-center gap-2"
+              >
+                (一社)セキュリティ・キャンプ協議会
+                <FaExternalLinkAlt />
+              </Link>
+            </h2>
+            <p>
+              次代を担う日本発で世界に通用する若年層の情報セキュリティ人材を発掘・育成するための取り組みを行なっている一般社団法人です。
+              私はこの団体のコミュニティ支援グループの一員として活動しています。
+            </p>
+            <span>Copyright(C)Security Camp</span>
+          </div>
+          <div className="flex flex-grow justify-center items-center">
+            <Image
+              src="/img/security-camp.png"
+              alt="(一社)セキュリティ・キャンプ協議会"
+              height={150}
+              width={150}
+            />
           </div>
         </section>
       </div>

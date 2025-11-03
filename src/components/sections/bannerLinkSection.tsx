@@ -15,6 +15,21 @@ export default function BannerLinkSection() {
       imageUrl: "/img/banner/ysmservice.png",
       size: "small",
     },
+    {
+      name: "しひろのポートフォリオサイト",
+      url: "https://shihiro.com",
+      imageUrl: "/img/banner/shihiro-banner.png",
+    },
+    {
+      name: "やーはり",
+      url: "https://ya-hari.skyia.jp",
+      imageUrl: "/img/banner/yahari.png",
+    },
+    {
+      name: "デジタル創作サークルUniProject",
+      url: "https://uniproject.jp",
+      imageUrl: "/img/banner/powered_by_unipro_ol.webp",
+    },
   ];
   return (
     <>

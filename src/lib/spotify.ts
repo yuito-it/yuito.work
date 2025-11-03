@@ -17,13 +17,26 @@ if (!fs.existsSync(path.dirname(tokensPath))) {
 
 let access_token: string;
 let refresh_token: string;
-if (fs.existsSync(tokensPath)) {
-  ({ access_token, refresh_token } = JSON.parse(fs.readFileSync(tokensPath, "utf8")));
+
+function loadTokens() {
+  try {
+    if (fs.existsSync(tokensPath)) {
+      const content = fs.readFileSync(tokensPath, "utf8");
+      if (content.trim()) {
+        const tokens = JSON.parse(content);
+        access_token = tokens.access_token;
+        refresh_token = tokens.refresh_token;
+      }
+    }
+  } catch (error) {
+    console.error("Error loading tokens:", error);
+  }
 }
 
 const basic_authorization = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 
 export async function setSpotifyStatus() {
+  loadTokens();
   if (!access_token) {
     await getFirstAccessTokenToSpotify();
   }
@@ -40,6 +53,7 @@ export async function setSpotifyStatus() {
 }
 
 export async function getFirstAccessTokenToSpotify(code = authorization_code) {
+  loadTokens();
   try {
     const response = await fetch("https://accounts.spotify.com/api/token", {
       next: { revalidate: 30 },
@@ -78,6 +92,7 @@ export async function getFirstAccessTokenToSpotify(code = authorization_code) {
 }
 
 async function refreshAccessTokenToSpotify() {
+  loadTokens();
   try {
     const response = await fetch("https://accounts.spotify.com/api/token", {
       next: { revalidate: 30 },
@@ -115,6 +130,7 @@ async function refreshAccessTokenToSpotify() {
 }
 
 async function getNowPlaying() {
+  loadTokens();
   try {
     const response = await fetch("https://api.spotify.com/v1/me/player", {
       headers: {

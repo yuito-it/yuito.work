@@ -17,6 +17,8 @@ import {
   SiGit,
   SiArgo,
   SiLinux,
+  SiGo,
+  SiRust,
 } from "react-icons/si";
 
 export async function generateMetadata(props: {
@@ -55,6 +57,7 @@ export async function generateMetadata(props: {
 
 import type { Viewport } from "next";
 import MotionWrapper from "@/components/fadeinWrapper";
+import { MdSecurity } from "react-icons/md";
 
 export const viewport: Viewport = {
   themeColor: "#80604b",
@@ -78,6 +81,10 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
     { icon: SiArgo, name: "ArgoCD" },
     { icon: SiLinux, name: "Linux" },
     { icon: SiGit, name: "Git" },
+    { icon: SiGit, name: "GitHub Actions" },
+    { icon: MdSecurity, name: "Security" },
+    { icon: SiGo, name: "Go" },
+    { icon: SiRust, name: "Rust" },
   ];
 
   return (

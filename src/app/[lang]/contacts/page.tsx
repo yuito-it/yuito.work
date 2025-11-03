@@ -1,5 +1,5 @@
 import { Button } from "@/components/button";
-import { ImMail, ImTwitter } from "react-icons/im";
+import { ImLinkedin, ImMail, ImTwitter } from "react-icons/im";
 import Link from "next/link";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
@@ -88,7 +88,15 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                     className="flex items-center justify-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
                   >
                     <ImTwitter className="text-xl" />
-                    <span className="text-base">Twitter: @yuito_it_ (DM)</span>
+                    <span className="text-base">@yuito_it_</span>
+                  </Link>
+                  <Link
+                    href={"https://www.linkedin.com/in/yutakatani/"}
+                    target="_blank"
+                    className="flex items-center justify-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
+                  >
+                    <ImLinkedin className="text-xl" />
+                    <span className="text-base">yutakatani</span>
                   </Link>
                   <Link
                     href={"mailto:yuito@yuito-it.jp"}
@@ -96,7 +104,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                     className="flex items-center justify-center gap-3 opacity-80 hover:opacity-100 transition-opacity"
                   >
                     <ImMail className="text-xl" />
-                    <span className="text-base">Mail: yuito[at]yuito-it.jp</span>
+                    <span className="text-base">yuito[at]yuito-it.jp</span>
                   </Link>
                 </div>
               </div>

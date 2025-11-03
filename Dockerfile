@@ -1,5 +1,13 @@
-# Use the official Node.js 14 image as the base image
-FROM oven/bun:latest
+FROM node:24
+
+RUN apt-get update && apt-get install -y \
+  zip \
+  unzip \
+  curl
+
+RUN curl -fsSL https://bun.sh/install | bash
+
+ENV PATH="/root/.bun/bin:$PATH"
 
 # Set the working directory inside the container
 WORKDIR /app

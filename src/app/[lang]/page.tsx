@@ -50,6 +50,7 @@ export async function generateMetadata(props: {
 
 import type { Viewport } from "next";
 import LPMotionWrapper from "@/components/fadeinLP";
+import Ad from "@/components/ad";
 
 export const viewport: Viewport = {
   themeColor: "#80604b",
@@ -153,6 +154,14 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                     <BannerLinkSection />
                     <TextLinkSection />
                   </div>
+                </div>
+              </section>
+              <section className="flex flex-col gap-6 md:gap-8 w-full">
+                <div className="flex flex-col gap-4 p-4 sm:p-8 rounded-lg border border-foreground/10">
+                  <h2 className="text-xl font-bold pb-3 border-b border-foreground/[0.08]">
+                    Sponsor Links
+                  </h2>
+                  <Ad />
                 </div>
               </section>
             </div>

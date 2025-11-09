@@ -25,7 +25,11 @@ export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   // `/_next/` と `/api/` はウォッチャーによって無視されますが、`public` 内のファイルは手動で無視する必要があります。
   // もし存在する場合
-  if (["/manifest.json", "/favicon.ico", "/robots.txt", "/sitemap.xml", "/img"].includes(pathname))
+  if (
+    ["/manifest.json", "/favicon.ico", "/robots.txt", "/sitemap.xml", "/img", "/ads.txt"].includes(
+      pathname
+    )
+  )
     return;
 
   // パス名にサポートされているロケールが含まれているかどうかを確認

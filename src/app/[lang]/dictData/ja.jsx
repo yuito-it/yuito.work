@@ -47,7 +47,7 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
             <br />
             <code className="block border border-foreground/10 p-2 bg-foreground/5 rounded-md">
               &lt;a href=&quot;https://yuito-it.jp&quot;&gt; &lt;img
-              src=&quot;https://yuito.work/img/banner_88x31.png&quot; alt=&quot;yuitopia -
+              src=&quot;https://yuito-it.jp/img/banner_88x31.png&quot; alt=&quot;yuitopia -
               あかつきゆいと公式ウェブサイト&quot; width=&quot;88&quot; height=&quot;31&quot; /&gt;
               &lt;/a&gt;
             </code>

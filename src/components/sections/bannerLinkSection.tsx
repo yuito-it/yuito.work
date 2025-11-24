@@ -30,6 +30,11 @@ export default function BannerLinkSection() {
       url: "https://uniproject.jp",
       imageUrl: "/img/banner/powered_by_unipro_ol.webp",
     },
+    {
+      name: "256server",
+      url: "https://256server.com/",
+      imageUrl: "/img/banner/256server.png",
+    },
   ];
   return (
     <>

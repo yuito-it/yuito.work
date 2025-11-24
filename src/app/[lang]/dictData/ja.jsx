@@ -22,7 +22,39 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
 自分だけの「好き」を自由に表現し、記録していく場所として、このサイトをつくりました。
 少し不思議で、ちょっと遊び心のある世界を、どうぞのぞいてみてください。`,
     },
-    friendLinks: "相互リンク",
+    friendLinks: {
+      title: "相互リンク",
+      description: "友人のウェブサイトやプロジェクトへのリンク集です。",
+      howto: {
+        contents: (
+          <div className="flex flex-col gap-2">
+            相互リンクしてくださる方を絶賛募集中です！相互リンクをご希望の方は、以下の情報を含むメールを
+            <Link
+              href={"mailto:contact[at]yuito.work"}
+              className="hover:underline inline-flex items-baseline"
+            >
+              contact[at]yuito.work
+            </Link>
+            までお送りください。[at]は@に変更してください。
+            <br />
+            <ul className="list-disc list-inside mt-2">
+              <li>サイト名</li>
+              <li>URL</li>
+              <li>紹介文（50文字以内）</li>
+              <li>バナー画像（任意、88x31推奨）</li>
+            </ul>
+            また、以下のバナーをご利用ください。
+            <br />
+            <code className="block border border-foreground/10 p-2 bg-foreground/5 rounded-md">
+              &lt;a href=&quot;https://yuito-it.jp&quot;&gt; &lt;img
+              src=&quot;https://yuito.work/img/banner_88x31.png&quot; alt=&quot;yuitopia -
+              あかつきゆいと公式ウェブサイト&quot; width=&quot;88&quot; height=&quot;31&quot; /&gt;
+              &lt;/a&gt;
+            </code>
+          </div>
+        ),
+      },
+    },
   },
   contacts: {
     title: "Contacts",

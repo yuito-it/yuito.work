@@ -21,7 +21,39 @@ const data = {
 From web development to app experiments and playful ideas—this is a space where I freely explore and express what I love.
 Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
     },
-    friendLinks: "Friend Links",
+    friendLinks: {
+      title: "Friend Links",
+      description: "Links to friends' websites and projects.",
+      howto: {
+        contents: (
+          <div className="flex flex-col gap-2">
+            I am actively seeking friends for link exchanges! If you would like to exchange links,
+            please send an email including the following information to
+            <Link
+              href={"mailto:contact[at]yuito.work"}
+              className="hover:underline inline-flex items-baseline"
+            >
+              contact[at]yuito.work
+            </Link>
+            . Please replace [at] with @.
+            <br />
+            <ul className="list-disc list-inside mt-2">
+              <li>Site Name</li>
+              <li>URL</li>
+              <li>Description (within 50 characters)</li>
+              <li>Banner Image (optional, recommended size: 88x31)</li>
+            </ul>
+            Also, please use the following banner:
+            <code className="block border border-foreground/10 p-2 bg-foreground/5 rounded-md">
+              &lt;a href=&quot;https://yuito-it.jp&quot;&gt; &lt;img
+              src=&quot;https://yuito.work/img/banner_88x31.png&quot; alt=&quot;yuitopia - Yuito
+              Akatsuki Official Website&quot; width=&quot;88&quot; height=&quot;31&quot; /&gt;
+              &lt;/a&gt;
+            </code>
+          </div>
+        ),
+      },
+    },
   },
   contacts: {
     title: "Contacts",

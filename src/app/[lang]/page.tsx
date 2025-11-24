@@ -148,8 +148,14 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
               <section className="flex flex-col gap-6 md:gap-8 w-full">
                 <div className="flex flex-col gap-4 p-4 sm:p-8 rounded-lg border border-foreground/10">
                   <h2 className="text-xl font-bold pb-3 border-b border-foreground/[0.08]">
-                    {dict.home.friendLinks}
+                    {dict.home.friendLinks.title}
                   </h2>
+                  <div className="mb-4 text-base opacity-80 whitespace-normal">
+                    <p className="text-base opacity-80 whitespace-pre-wrap mb-4">
+                      {dict.home.friendLinks.description}
+                    </p>
+                    {dict.home.friendLinks.howto.contents}
+                  </div>
                   <div className="grid gap-4 sm:grid-cols-6 lg:grid-cols-9 content-start">
                     <BannerLinkSection />
                     <TextLinkSection />

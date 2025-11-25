@@ -8,6 +8,7 @@ resources:
   - rvp.yaml
   - spotify.yaml
   - registry.yaml
+  - imageUpdater.yaml
 labels:
   - includeSelectors: true
     pairs:

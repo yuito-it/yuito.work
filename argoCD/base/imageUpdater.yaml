@@ -1,0 +1,14 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: yuito-site
+  namespace: argocd
+spec:
+  namespace: argocd
+  applicationRefs:
+    - namePattern: "yuito-site"
+      images:
+        - alias: "yuito-work"
+          imageName: "registry.uniproject.jp/yuito-it/yuito-work"
+          commonUpdateSettings:
+            updateStrategy: "semver"

@@ -46,8 +46,8 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
             Also, please use the following banner:
             <code className="block border border-foreground/10 p-2 bg-foreground/5 rounded-md">
               &lt;a href=&quot;https://yuito-it.jp&quot;&gt; &lt;img
-              src=&quot;https://yuito-it.jp/img/banner_88x31.png&quot; alt=&quot;yuitopia - Yuito
-              Akatsuki Official Website&quot; width=&quot;88&quot; height=&quot;31&quot; /&gt;
+              src=&quot;https://yuito-it.jp/img/banner/yuitopia_80x31.gif&quot; alt=&quot;yuitopia -
+              Yuito Akatsuki Official Website&quot; width=&quot;88&quot; height=&quot;31&quot; /&gt;
               &lt;/a&gt;
             </code>
           </div>

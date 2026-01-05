@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function QiitaIcon() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined" && window.matchMedia) {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    return "light";
+  });
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -11,7 +16,6 @@ export default function QiitaIcon() {
       setTheme(e.matches ? "dark" : "light");
     };
 
-    setTheme(mediaQuery.matches ? "dark" : "light");
     mediaQuery.addEventListener("change", handleChange);
 
     return () => {

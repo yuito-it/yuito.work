@@ -30,10 +30,10 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
             I am actively seeking friends for link exchanges! If you would like to exchange links,
             please send an email including the following information to
             <Link
-              href={"mailto:contact[at]yuito.work"}
+              href={"mailto:contact[at]yuito-it.jp"}
               className="hover:underline inline-flex items-baseline"
             >
-              contact[at]yuito.work
+              contact[at]yuito-it.jp
             </Link>
             . Please replace [at] with @.
             <br />

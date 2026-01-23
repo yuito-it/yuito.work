@@ -30,10 +30,10 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
           <div className="flex flex-col gap-2">
             相互リンクしてくださる方を絶賛募集中です！相互リンクをご希望の方は、以下の情報を含むメールを
             <Link
-              href={"mailto:contact[at]yuito.work"}
+              href={"mailto:contact[at]yuito-it.jp"}
               className="hover:underline inline-flex items-baseline"
             >
-              contact[at]yuito.work
+              contact[at]yuito-it.jp
             </Link>
             までお送りください。[at]は@に変更してください。
             <br />

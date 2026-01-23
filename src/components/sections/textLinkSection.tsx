@@ -9,6 +9,10 @@ export default function BannerLinkSection() {
       url: "https://ayane0857.net/",
       description: "適当なもの作ってます",
     },
+    {
+      name: "甲斐智丈の個人サイト",
+      url: "https://modern-sys.dev/",
+    },
   ];
   return (
     <>

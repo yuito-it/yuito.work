@@ -18,7 +18,9 @@ export default function TextLink({ name, url, description }: TextLinkProps) {
         <span className="font-medium">{name}</span>
         <FaExternalLinkAlt className="text-xs opacity-70" />
       </Link>
-      {description && <p className="text-sm opacity-60 mt-0.5">{description}</p>}
+      {description && (
+        <p className="text-sm opacity-60 mt-0.5">{description}</p>
+      )}
     </div>
   );
 }

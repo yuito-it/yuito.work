@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import qs from "qs";
+
 import fs from "fs";
 import path from "path";
+import qs from "qs";
 
 export const dynamic = "force-dynamic";
 
@@ -33,7 +34,9 @@ function loadTokens() {
   }
 }
 
-const basic_authorization = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
+const basic_authorization = Buffer.from(
+  `${client_id}:${client_secret}`,
+).toString("base64");
 
 export async function setSpotifyStatus() {
   loadTokens();
@@ -82,7 +85,7 @@ export async function getFirstAccessTokenToSpotify(code = authorization_code) {
         refresh_token: refresh_token,
       },
       null,
-      " "
+      " ",
     );
     fs.writeFileSync(tokensPath, tokens);
     console.log("Tokens saved to:", tokensPath);
@@ -120,7 +123,7 @@ async function refreshAccessTokenToSpotify() {
         refresh_token: refresh_token,
       },
       null,
-      " "
+      " ",
     );
     fs.writeFileSync(tokensPath, tokens);
   } catch (error) {

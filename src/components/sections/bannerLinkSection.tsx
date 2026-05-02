@@ -1,4 +1,4 @@
-import BannerLink, { BannerLinkProps } from "../bannerLink";
+import BannerLink, { type BannerLinkProps } from "../bannerLink";
 
 export const dynamic = "force-static";
 

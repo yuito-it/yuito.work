@@ -1,13 +1,17 @@
 "use client";
-import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import localFont from "next/font/local";
+import { useEffect, useState } from "react";
 
 const AinslieSans = localFont({
   src: "@/fonts/AinslieSans-NorThiIt.otf",
 });
 
-export default function LPMotionWrapper({ children }: { children: React.ReactNode }) {
+export default function LPMotionWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [showBody, setShowBody] = useState(false);
 
   useEffect(() => {

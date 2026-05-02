@@ -27,8 +27,9 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
       howto: {
         contents: (
           <div className="flex flex-col gap-2">
-            I am actively seeking friends for link exchanges! If you would like to exchange links,
-            please send an email including the following information to
+            I am actively seeking friends for link exchanges! If you would like
+            to exchange links, please send an email including the following
+            information to
             <Link
               href={"mailto:contact[at]yuito-it.jp"}
               className="hover:underline inline-flex items-baseline"
@@ -46,9 +47,9 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
             Also, please use the following banner:
             <code className="block border border-foreground/10 p-2 bg-foreground/5 rounded-md">
               &lt;a href=&quot;https://yuito-it.jp&quot;&gt; &lt;img
-              src=&quot;https://yuito-it.jp/img/banner/yuitopia_367x130.gif&quot; alt=&quot;yuitopia
-              - Yuito Akatsuki Official Website&quot; width=&quot;367&quot; height=&quot;130&quot;
-              /&gt; &lt;/a&gt;
+              src=&quot;https://yuito-it.jp/img/banner/yuitopia_367x130.gif&quot;
+              alt=&quot;yuitopia - Yuito Akatsuki Official Website&quot;
+              width=&quot;367&quot; height=&quot;130&quot; /&gt; &lt;/a&gt;
             </code>
           </div>
         ),
@@ -69,9 +70,10 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
     description: "Introduction",
     contents: (
       <>
-        Yuito Akatsuki is a Digital Creator, Web Developer, Infrastructure Engineer, and Project
-        Manager. Born in 2009, he is currently a student at S High School in Japan. He is also the
-        founder of the All-Japan Digital Circle{" "}
+        Yuito Akatsuki is a Digital Creator, Web Developer, Infrastructure
+        Engineer, and Project Manager. Born in 2009, he is currently a student
+        at S High School in Japan. He is also the founder of the All-Japan
+        Digital Circle{" "}
         <Link
           href={"https://uniproject.jp"}
           target="_blank"
@@ -111,9 +113,9 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
               </Link>
             </h2>
             <p>
-              UniProject is an online community created to provide a space for digital creators to
-              exchange ideas and collaborate. We work on various projects, including websites,
-              applications, and videos.
+              UniProject is an online community created to provide a space for
+              digital creators to exchange ideas and collaborate. We work on
+              various projects, including websites, applications, and videos.
             </p>
             <span>(c) 2024-2025 UniProject. Used under CC BY-NC-SA 4.0</span>
           </div>
@@ -132,12 +134,15 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
               </Link>
             </h2>
             <p>
-              Club Portal Linkle is a website managed by UniProject that aggregates information
-              about clubs within N/S/R High School. It provides convenient features for finding club
-              information. This project received the Excellence Award at the{" "}
+              Club Portal Linkle is a website managed by UniProject that
+              aggregates information about clubs within N/S/R High School. It
+              provides convenient features for finding club information. This
+              project received the Excellence Award at the{" "}
               <bold className="font-bold">
                 <Link
-                  href={"https://progedu.github.io/webappcontest/2024/winter/entry/result.html"}
+                  href={
+                    "https://progedu.github.io/webappcontest/2024/winter/entry/result.html"
+                  }
                   target="_blank"
                   arget="_blank"
                   className="hover:underline items-baseliner:underline inline-flex items-baseline"
@@ -180,9 +185,10 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
               </Link>
             </h2>
             <p>
-              UniPro Git Tool is a utility designed to enhance Git commitniPro Git Tool is a tool to
-              make Git commit messages more messages. It allows users to add emojis to commit
-              messages basedased on on templates and prefixes.
+              UniPro Git Tool is a utility designed to enhance Git commitniPro
+              Git Tool is a tool to make Git commit messages more messages. It
+              allows users to add emojis to commit messages basedased on on
+              templates and prefixes.
             </p>
           </div>
           <span>(c) 2024 UniProject. Used under CC BY-NC-SA 4.0</span>
@@ -201,10 +207,10 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
               </Link>
             </h2>
             <p>
-              Security Camp Association is a general incorporated association that conducts
-              initiatives to discover and nurture young information security talent from Japan who
-              can compete globally. I am a member of the community support group of this
-              organization.
+              Security Camp Association is a general incorporated association
+              that conducts initiatives to discover and nurture young
+              information security talent from Japan who can compete globally. I
+              am a member of the community support group of this organization.
             </p>
             <span>Copyright(C)Security Camp</span>
           </div>

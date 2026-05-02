@@ -3,10 +3,11 @@
   "version": "5.8.11",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "biome check --fix",
+    "format": "biome format --write"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.8.5",
@@ -24,12 +25,11 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.4.14",
     "@types/negotiator": "^0.6.4",
     "@types/node": "^25.6.0",
     "@types/qs": "^6.15.0",
     "@types/react": "19.2.14",
-    "eslint": "^9.39.4",
-    "eslint-config-next": "16.1.6",
     "postcss": "^8.5.13",
     "tailwindcss": "^4.2.4",
     "typescript": "^5.9.3"

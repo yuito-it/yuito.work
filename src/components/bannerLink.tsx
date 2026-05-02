@@ -8,7 +8,12 @@ export interface BannerLinkProps {
   size?: "small" | "medium" | "large";
 }
 
-export default function BannerLink({ name, imageUrl, url, size = "medium" }: BannerLinkProps) {
+export default function BannerLink({
+  name,
+  imageUrl,
+  url,
+  size = "medium",
+}: BannerLinkProps) {
   const sizeClasses = {
     small: "lg:col-span-1 col-span-6",
     medium: "lg:col-span-3 col-span-6",

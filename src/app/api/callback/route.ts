@@ -1,4 +1,4 @@
-import { type NextRequest } from "next/server";
+import type { NextRequest } from "next/server";
 import { getFirstAccessTokenToSpotify } from "@/lib/spotify";
 
 export async function GET(request: NextRequest) {

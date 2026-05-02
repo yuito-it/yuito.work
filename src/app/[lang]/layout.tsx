@@ -25,7 +25,7 @@ export default async function RootLayout(
   props: Readonly<{
     children: React.ReactNode;
     params: Promise<{ lang: string }>;
-  }>
+  }>,
 ) {
   const params = await props.params;
 
@@ -34,11 +34,10 @@ export default async function RootLayout(
   const { children } = props;
 
   return (
-    <html
-      lang={lang}
-      className="w-full"
-    >
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased w-full`}>
+    <html lang={lang} className="w-full">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full`}
+      >
         {children}
       </body>
       <GoogleAnalytics gaId={"G-BF3ZSP6SM1"} />

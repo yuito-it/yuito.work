@@ -1,15 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import { Button } from "@/components/button";
-import NowPlayingWidget from "@/components/spotify";
-import { ImGithub, ImTwitter } from "react-icons/im";
 import Link from "next/link";
-import QiitaIcon from "@/components/qiita-icon";
+import { ImGithub, ImTwitter } from "react-icons/im";
+import { Button } from "@/components/button";
 import Footer from "@/components/footer";
-import { Metadata } from "next";
-import { Locale } from "@/i18n-config";
-import { getDictionary } from "./dictionaries";
+import QiitaIcon from "@/components/qiita-icon";
 import BannerLinkSection from "@/components/sections/bannerLinkSection";
 import TextLinkSection from "@/components/sections/textLinkSection";
+import NowPlayingWidget from "@/components/spotify";
+import type { Locale } from "@/i18n-config";
+import { getDictionary } from "./dictionaries";
 
 export const revalidate = 10;
 
@@ -58,7 +58,9 @@ export const viewport: Viewport = {
 
 export const dynamic = "force-dynamic";
 
-export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
+export default async function Home(props: {
+  params: Promise<{ lang: Locale }>;
+}) {
   const params = await props.params;
   const { lang } = params;
   const dict = await getDictionary(lang);
@@ -79,7 +81,9 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                 <div className="relative group mx-auto md:mx-0">
                   <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur transition group-hover:opacity-30"></div>
                   <Image
-                    src={"https://avatars.githubusercontent.com/u/132048482?v=4"}
+                    src={
+                      "https://avatars.githubusercontent.com/u/132048482?v=4"
+                    }
                     className="rounded-full relative"
                     width="100"
                     height="100"

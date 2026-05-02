@@ -1,6 +1,6 @@
-import { ImGithub } from "react-icons/im";
-import { FaScaleBalanced } from "react-icons/fa6";
 import Image from "next/image";
+import { FaScaleBalanced } from "react-icons/fa6";
+import { ImGithub } from "react-icons/im";
 
 export default function footer() {
   return (
@@ -39,7 +39,9 @@ export default function footer() {
           Go to UniProject
         </a>
       </div>
-      <span className="text-center">&copy;2024-2025 YuitoAkatsuki All rights reserved.</span>
+      <span className="text-center">
+        &copy;2024-2025 YuitoAkatsuki All rights reserved.
+      </span>
     </footer>
   );
 }

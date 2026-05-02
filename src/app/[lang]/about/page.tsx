@@ -1,25 +1,25 @@
-import { Button } from "@/components/button";
-import { ImGithub, ImTwitter } from "react-icons/im";
+import type { Metadata } from "next";
 import Link from "next/link";
-import QiitaIcon from "@/components/qiita-icon";
-import Footer from "@/components/footer";
-import { Metadata } from "next";
-import { getDictionary } from "../dictionaries";
-import { Locale } from "@/i18n-config";
+import { ImGithub, ImTwitter } from "react-icons/im";
 import {
-  SiTypescript,
+  SiArgo,
+  SiDocker,
+  SiGit,
+  SiGo,
+  SiKubernetes,
+  SiLinux,
+  SiNextdotjs,
   SiPython,
   SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiDocker,
-  SiKubernetes,
-  SiGit,
-  SiArgo,
-  SiLinux,
-  SiGo,
   SiRust,
+  SiTailwindcss,
+  SiTypescript,
 } from "react-icons/si";
+import { Button } from "@/components/button";
+import Footer from "@/components/footer";
+import QiitaIcon from "@/components/qiita-icon";
+import type { Locale } from "@/i18n-config";
+import { getDictionary } from "../dictionaries";
 
 export async function generateMetadata(props: {
   params: Promise<{ lang: Locale }>;
@@ -56,14 +56,16 @@ export async function generateMetadata(props: {
 }
 
 import type { Viewport } from "next";
-import MotionWrapper from "@/components/fadeinWrapper";
 import { MdSecurity } from "react-icons/md";
+import MotionWrapper from "@/components/fadeinWrapper";
 
 export const viewport: Viewport = {
   themeColor: "#80604b",
 };
 
-export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
+export default async function Home(props: {
+  params: Promise<{ lang: Locale }>;
+}) {
   const params = await props.params;
 
   const { lang } = params;
@@ -92,10 +94,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
       <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-background text-foreground">
         <header className="w-full px-4 sm:px-8 py-6">
           <div className="max-w-5xl mx-auto">
-            <Button<"Link">
-              href={`/${lang}`}
-              back="true"
-            >
+            <Button<"Link"> href={`/${lang}`} back="true">
               {dict.common.BackHome}
             </Button>
           </div>
@@ -154,7 +153,9 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                           className="flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-foreground/5 transition-colors"
                         >
                           <Icon className="w-6 h-6 opacity-80" />
-                          <span className="text-sm text-center opacity-80">{skill.name}</span>
+                          <span className="text-sm text-center opacity-80">
+                            {skill.name}
+                          </span>
                         </div>
                       );
                     })}

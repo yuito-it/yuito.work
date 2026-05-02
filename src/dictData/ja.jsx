@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import Image from "next/image";
 
 const data = {
   home: {
@@ -47,9 +47,9 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
             <br />
             <code className="block border border-foreground/10 p-2 bg-foreground/5 rounded-md">
               &lt;a href=&quot;https://yuito-it.jp&quot;&gt; &lt;img
-              src=&quot;https://yuito-it.jp/img/banner/yuitopia_367x130.gif&quot; alt=&quot;yuitopia
-              - あかつきゆいと公式ウェブサイト&quot; width=&quot;367&quot; height=&quot;130&quot;
-              /&gt; &lt;/a&gt;
+              src=&quot;https://yuito-it.jp/img/banner/yuitopia_367x130.gif&quot;
+              alt=&quot;yuitopia - あかつきゆいと公式ウェブサイト&quot;
+              width=&quot;367&quot; height=&quot;130&quot; /&gt; &lt;/a&gt;
             </code>
           </div>
         ),
@@ -136,7 +136,9 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
               同好会の情報を探す際に便利な機能が揃っています。 このサイトは、
               <bold className="font-bold">
                 <Link
-                  href={"https://progedu.github.io/webappcontest/2024/winter/entry/result.html"}
+                  href={
+                    "https://progedu.github.io/webappcontest/2024/winter/entry/result.html"
+                  }
                   target="_blank"
                   className="hover:underline inline-flex items-baseline"
                 >
@@ -178,7 +180,8 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
               </Link>
             </h2>
             <p>
-              UniPro Git ToolはGitのコミットメッセージをいいかんじにするためのツールです。
+              UniPro Git
+              ToolはGitのコミットメッセージをいいかんじにするためのツールです。
               コミットメッセージのテンプレートや、コミットメッセージのprefixに応じて、絵文字を追加できるようになっています。
             </p>
             <span>(c) 2024 UniProject. Used under CC BY-NC-SA 4.0</span>

@@ -1,4 +1,4 @@
-import TextLink, { TextLinkProps } from "@/components/textLink";
+import TextLink, { type TextLinkProps } from "@/components/textLink";
 
 export const dynamic = "force-static";
 

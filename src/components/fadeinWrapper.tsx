@@ -1,7 +1,11 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
 
-export default function MotionWrapper({ children }: { children: React.ReactNode }) {
+export default function MotionWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <AnimatePresence mode="wait">
       <motion.div

@@ -1,6 +1,6 @@
-import { setSpotifyStatus } from "@/lib/spotify";
 import Image from "next/image";
-import { FaSpotify, FaPodcast } from "react-icons/fa6";
+import { FaPodcast, FaSpotify } from "react-icons/fa6";
+import { setSpotifyStatus } from "@/lib/spotify";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +27,9 @@ async function NowPlayingWidget() {
     );
   }
 
-  let artists = nowPlaying.item.artists.map((artist: { name: string }) => artist.name).join(", ");
+  let artists = nowPlaying.item.artists
+    .map((artist: { name: string }) => artist.name)
+    .join(", ");
   if (artists.length > 30) {
     artists = artists.slice(0, 30) + "...";
   }
@@ -48,7 +50,9 @@ async function NowPlayingWidget() {
           <FaSpotify className="text-[#1DB954]" />
           <span>Spotify - Now Playing</span>
         </div>
-        <h2 className="text-base font-medium truncate">{nowPlaying.item.name}</h2>
+        <h2 className="text-base font-medium truncate">
+          {nowPlaying.item.name}
+        </h2>
         <p className="text-sm opacity-60 truncate">{artists}</p>
       </div>
     </div>

@@ -1,8 +1,8 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/button";
 import Footer from "@/components/footer";
-import { Metadata } from "next";
+import type { Locale } from "@/i18n-config";
 import { getDictionary } from "../dictionaries";
-import { Locale } from "@/i18n-config";
 
 export async function generateMetadata(props: {
   params: Promise<{ lang: Locale }>;
@@ -45,7 +45,9 @@ export const viewport: Viewport = {
   themeColor: "#80604b",
 };
 
-export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
+export default async function Home(props: {
+  params: Promise<{ lang: Locale }>;
+}) {
   const params = await props.params;
 
   const { lang } = params;
@@ -56,10 +58,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
       <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-background text-foreground">
         <header className="w-full px-4 sm:px-8 py-6">
           <div className="max-w-5xl mx-auto">
-            <Button<"Link">
-              href={`/${lang}`}
-              back="true"
-            >
+            <Button<"Link"> href={`/${lang}`} back="true">
               {dict.common.BackHome}
             </Button>
           </div>
@@ -74,7 +73,9 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                 >
                   Works
                 </h1>
-                <p className="opacity-80 text-sm max-w-2xl">{dict.works.description}</p>
+                <p className="opacity-80 text-sm max-w-2xl">
+                  {dict.works.description}
+                </p>
               </div>
               <div className="opacity-90 pt-4">{dict.works.contents}</div>
             </div>

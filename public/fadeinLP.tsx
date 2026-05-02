@@ -34,7 +34,7 @@ export default function LPMotionWrapper({
           <div className="flex flex-row items-center justify-center h-screen">
             {"yuitopia".split("").map((char, index) => (
               <motion.h1
-                key={index}
+                key={char}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 }}

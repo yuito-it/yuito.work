@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import qs from "qs";
 
 export const dynamic = "force-dynamic";
@@ -46,7 +46,7 @@ export async function setSpotifyStatus() {
   const now_playing = await getNowPlaying();
 
   if (now_playing) {
-    if (now_playing.currently_playing_type == "track") {
+    if (now_playing.currently_playing_type === "track") {
       console.log("Now playing:", now_playing.item.name);
     } else {
       console.log("Now playing:", now_playing.currently_playing_type);
@@ -62,7 +62,7 @@ export async function getFirstAccessTokenToSpotify(code = authorization_code) {
       next: { revalidate: 30 },
       method: "POST",
       headers: {
-        Authorization: "Basic " + basic_authorization,
+        Authorization: `Basic ${basic_authorization}`,
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: qs.stringify({
@@ -72,7 +72,7 @@ export async function getFirstAccessTokenToSpotify(code = authorization_code) {
       }),
     });
 
-    if (!response.ok) throw new Error("HTTP status " + response.status);
+    if (!response.ok) throw new Error(`HTTP status ${response.status}`);
 
     const data = await response.json();
     access_token = data.access_token;
@@ -101,7 +101,7 @@ async function refreshAccessTokenToSpotify() {
       next: { revalidate: 30 },
       method: "POST",
       headers: {
-        Authorization: "Basic " + basic_authorization,
+        Authorization: `Basic ${basic_authorization}`,
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: qs.stringify({
@@ -110,7 +110,7 @@ async function refreshAccessTokenToSpotify() {
       }),
     });
 
-    if (!response.ok) throw new Error("HTTP status " + response.status);
+    if (!response.ok) throw new Error(`HTTP status ${response.status}`);
 
     const data = await response.json();
     access_token = data.access_token;
@@ -147,10 +147,10 @@ async function getNowPlaying() {
 
     if (!response.ok) {
       if (response.status === 401) {
-        if ((await refreshAccessTokenToSpotify()) == 1) return null;
+        if ((await refreshAccessTokenToSpotify()) === 1) return null;
         return await getNowPlaying();
       }
-      throw new Error("HTTP status " + response.status);
+      throw new Error(`HTTP status ${response.status}`);
     }
 
     const data = await response.json();

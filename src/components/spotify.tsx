@@ -8,12 +8,12 @@ async function NowPlayingWidget() {
   const nowPlaying = await setSpotifyStatus();
 
   if (!nowPlaying) return;
-  if (nowPlaying.currently_playing_type == "ad") return;
+  if (nowPlaying.currently_playing_type === "ad") return;
 
-  if (nowPlaying.currently_playing_type == "episode") {
+  if (nowPlaying.currently_playing_type === "episode") {
     return (
       <div className="flex items-center gap-4 p-3 rounded-lg bg-foreground/[0.03] hover:bg-foreground/[0.05] transition-colors">
-        <div className="relative w-16 h-16 flex-shrink-0">
+        <div className="relative w-16 h-16 shrink-0">
           <FaPodcast className="w-full h-full opacity-80" />
         </div>
         <div className="flex flex-col min-w-0">
@@ -31,12 +31,12 @@ async function NowPlayingWidget() {
     .map((artist: { name: string }) => artist.name)
     .join(", ");
   if (artists.length > 30) {
-    artists = artists.slice(0, 30) + "...";
+    artists = `${artists.slice(0, 30)}...`;
   }
 
   return (
     <div className="flex items-center gap-4 p-3 rounded-lg bg-foreground/[0.03] hover:bg-foreground/[0.05] transition-colors">
-      <div className="relative w-16 h-16 flex-shrink-0">
+      <div className="relative w-16 h-16 shrink-0">
         <Image
           src={nowPlaying.item.album.images[0].url}
           alt={nowPlaying.item.name}

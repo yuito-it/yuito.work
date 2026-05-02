@@ -5,7 +5,7 @@
 # This Dockerfile.bun is specifically configured for projects using Bun
 # For npm/pnpm or yarn, refer to the Dockerfile instead
 
-FROM oven/bun:1 AS dependencies
+FROM oven/bun@sha256:87416c977a612a204eb54ab9f3927023c2a3c971f4f345a01da08ea6262ae30e AS dependencies
 
 # Set working directory
 WORKDIR /app
@@ -21,7 +21,7 @@ RUN --mount=type=cache,target=/root/.bun/install/cache \
 # Stage 2: Build Next.js application in standalone mode
 # ============================================
 
-FROM oven/bun:1 AS builder
+FROM oven/bun@sha256:87416c977a612a204eb54ab9f3927023c2a3c971f4f345a01da08ea6262ae30e AS builder
 
 # Set working directory
 WORKDIR /app
@@ -31,11 +31,6 @@ COPY --from=dependencies /app/node_modules ./node_modules
 
 # Copy application source code
 COPY . .
-
-#ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
-
-# Generate Prisma client
-# RUN bun x prisma generate
 
 ENV NODE_ENV=production
 
@@ -57,7 +52,7 @@ RUN bun run build
 # Stage 3: Run Next.js application
 # ============================================
 
-FROM oven/bun:1 AS runner
+FROM oven/bun@sha256:87416c977a612a204eb54ab9f3927023c2a3c971f4f345a01da08ea6262ae30e AS runner
 
 # Set working directory
 WORKDIR /app
@@ -88,18 +83,11 @@ COPY --from=builder --chown=bun:bun /app/.next/static ./.next/static
 # cached responses are available immediately on startup, uncomment this line:
 # COPY --from=builder --chown=bun:bun /app/.next/cache ./.next/cache
 
-# Copy the Prisma schema to migrate
-# COPY --from=builder --chown=bun:bun /app/prisma ./prisma
-# COPY --from=builder --chown=bun:bun /app/prisma.config.ts ./prisma.config.ts
-# RUN bun add prisma
-# RUN chmod -R 777 /app/node_modules
-
 # Switch to non-root user for security best practices
-USER bun
+USER 1000
 
 # Expose port 3000 to allow HTTP traffic
 EXPOSE 3000
 
 # Start Next.js standalone server with Bun
-# CMD ["sh", "-c", "bun x prisma migrate deploy && bun server.js"]
 CMD ["sh", "-c", "bun server.js"]

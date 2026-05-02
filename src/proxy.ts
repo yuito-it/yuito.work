@@ -21,7 +21,7 @@ function getLocale(request: NextRequest): string | undefined {
   return locale;
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   // `/_next/` と `/api/` はウォッチャーによって無視されますが、`public` 内のファイルは手動で無視する必要があります。
   // もし存在する場合

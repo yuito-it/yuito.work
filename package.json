@@ -27,7 +27,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.4.14",
     "@types/negotiator": "^0.6.4",
-    "@types/node": "^25.6.0",
+    "@types/node": "^26.0.0",
     "@types/qs": "^6.15.0",
     "@types/react": "19.2.15",
     "postcss": "^8.5.13",

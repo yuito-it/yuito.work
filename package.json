@@ -10,28 +10,28 @@
     "format": "biome format --write"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "^0.8.5",
-    "@next/third-parties": "^16.2.4",
-    "@tailwindcss/postcss": "^4.2.4",
-    "axios": "^1.15.2",
+    "@formatjs/intl-localematcher": "^0.8.13",
+    "@next/third-parties": "^16.3.4",
+    "@tailwindcss/postcss": "^4.3.3",
+    "axios": "^1.20.0",
     "dotenv": "^17.4.2",
-    "motion": "^12.38.0",
-    "negotiator": "^1.0.0",
-    "next": "^16.2.4",
-    "qs": "^6.15.1",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "react-icons": "^5.6.0",
-    "sharp": "^0.35.0"
+    "motion": "^12.43.0",
+    "negotiator": "^1.1.0",
+    "next": "^16.3.4",
+    "qs": "^6.16.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-icons": "^5.7.0",
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.14",
-    "@types/negotiator": "^0.6.4",
-    "@types/node": "^25.6.0",
-    "@types/qs": "^6.15.0",
+    "@biomejs/biome": "^2.5.12",
+    "@types/negotiator": "^0.6.5",
+    "@types/node": "^25.9.5",
+    "@types/qs": "^6.15.1",
     "@types/react": "19.2.17",
-    "postcss": "^8.5.13",
-    "tailwindcss": "^4.2.4",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3"
   }
 }

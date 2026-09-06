@@ -35,6 +35,11 @@ export default function BannerLinkSection() {
       url: "https://256server.com/",
       imageUrl: "/img/banner/256server.png",
     },
+    {
+      name: "ゆーのホームページ",
+      url: "https://drsb.f5.si/",
+      imageUrl: "https://drsb.f5.si/img/banner.png",
+    },
   ];
   return (
     <>

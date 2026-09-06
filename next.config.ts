@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "i.scdn.co",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "drsb.f5.si",
+        pathname: "/img/banner.png",
+      },
     ],
   },
   output: "standalone",

@@ -7,7 +7,6 @@ import Footer from "@/components/footer";
 import QiitaIcon from "@/components/qiita-icon";
 import BannerLinkSection from "@/components/sections/bannerLinkSection";
 import TextLinkSection from "@/components/sections/textLinkSection";
-import NowPlayingWidget from "@/components/spotify";
 import type { Locale } from "@/i18n-config";
 import { getDictionary } from "./dictionaries";
 
@@ -135,9 +134,6 @@ export default async function Home(props: {
                     <Button<"Link"> href={`/${lang}/about`}>About</Button>
                     <Button<"Link"> href={`/${lang}/works`}>Works</Button>
                     <Button<"Link"> href={`/${lang}/contacts`}>Contact</Button>
-                  </div>
-                  <div className="w-full opacity-80">
-                    <NowPlayingWidget />
                   </div>
                 </div>
               </section>

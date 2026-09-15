@@ -89,6 +89,7 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
     friendLinks: "相互リンク",
     contents: (
       <div className="space-y-4 p-5">
+        {/*
         <section className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-grow justify-center items-center md:order-1 order-2">
             <Image
@@ -118,21 +119,42 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
           </div>
         </section>
         <hr />
+        */}
         <section className="flex flex-col md:flex-row gap-4">
           <div className="md:w-3/5">
-            <h2 className="text-2xl">
+            <h2 className="text-2xl mb-2">
+              <Link
+                href={"https://security-camp.or.jp"}
+                target="_blank"
+                className="flex flex-row items-center gap-2"
+              >
+                (一社)セキュリティ・キャンプ協議会
+                <FaExternalLinkAlt />
+              </Link>
+            </h2>
+            <p>
+              次代を担う日本発で世界に通用する若年層の情報セキュリティ人材を発掘・育成するための取り組みを行なっている一般社団法人です。
+              私はこの団体のコミュニティ支援グループの一員として活動しています。
+            </p>
+          </div>
+        </section>
+        <hr />
+        <section className="flex flex-col md:flex-row gap-4">
+          <div className="md:w-3/5">
+            <h2 className="text-2xl mb-2">
               <Link
                 href={"https://linkle.unipro-n.com"}
                 target="_blank"
                 className="flex flex-row items-center gap-2"
               >
-                同好会ポータル Linkle
+                同好会ポータル Linkle (deprecated)
                 <FaExternalLinkAlt />
               </Link>
             </h2>
             <p>
-              同好会ポータル Linkleは、UniProjectが運営する、
-              N/S/R高等学校内の同好会の情報を集約するウェブサイトです。
+              同好会ポータル
+              Linkleは、N/S/R高等学校内の同好会の情報を集約するウェブアプリケーションです。
+              2026年の春頃までメンテナンスされていました。
               同好会の情報を探す際に便利な機能が揃っています。 このサイトは、
               <bold className="font-bold">
                 <Link
@@ -160,58 +182,29 @@ Web制作やアプリ開発、ちょっとしたアイデアの実験まで。
         </section>
         <hr />
         <section className="flex flex-col md:flex-row gap-4">
-          <div className="flex flex-grow justify-center items-center md:order-1 order-2">
-            <Image
-              src="/img/UniProGitTool.webp"
-              alt="UniPro Git Tool"
-              height={150}
-              width={350}
-            />
-          </div>
-          <div className="md:w-3/5 order-1 md:order-2">
-            <h2 className="text-2xl">
-              <Link
-                href={"https://github.com/UniPro-tech/UniPro-Git-Tool"}
-                target="_blank"
-                className="flex flex-row items-center gap-2"
-              >
-                UniPro Git Tool
-                <FaExternalLinkAlt />
-              </Link>
-            </h2>
-            <p>
-              UniPro Git
-              ToolはGitのコミットメッセージをいいかんじにするためのツールです。
-              コミットメッセージのテンプレートや、コミットメッセージのprefixに応じて、絵文字を追加できるようになっています。
-            </p>
-            <span>(c) 2024 UniProject. Used under CC BY-NC-SA 4.0</span>
-          </div>
-        </section>
-        <hr />
-        <section className="flex flex-col md:flex-row gap-4">
           <div className="md:w-3/5">
-            <h2 className="text-2xl">
+            <h2 className="text-2xl mb-2">
               <Link
-                href={"https://security-camp.or.jp"}
+                href={"https://github.com/cilium/cilium"}
                 target="_blank"
                 className="flex flex-row items-center gap-2"
               >
-                (一社)セキュリティ・キャンプ協議会
+                Cilium
                 <FaExternalLinkAlt />
               </Link>
             </h2>
             <p>
-              次代を担う日本発で世界に通用する若年層の情報セキュリティ人材を発掘・育成するための取り組みを行なっている一般社団法人です。
-              私はこの団体のコミュニティ支援グループの一員として活動しています。
+              KubernetesのCNIであるCiliumのコントリビューターとしても活動しています。
+              Ciliumは、LinuxカーネルのBPFを活用したネットワークおよびセキュリティのソリューションであり、クラウドネイティブな環境でのネットワーク管理を効率化します。
+              私は主にL2分野での開発に注力しています。
             </p>
-            <span>Copyright(C)Security Camp</span>
           </div>
           <div className="flex flex-grow justify-center items-center">
             <Image
-              src="/img/security-camp.png"
-              alt="(一社)セキュリティ・キャンプ協議会"
+              src="/img/cilium.png"
+              alt="Cilium"
               height={150}
-              width={150}
+              width={300}
             />
           </div>
         </section>

@@ -72,17 +72,7 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
       <>
         Yuito Akatsuki is a Digital Creator, Web Developer, Infrastructure
         Engineer, and Project Manager. Born in 2009, he is currently a student
-        at S High School in Japan. He is also the founder of the All-Japan
-        Digital Circle{" "}
-        <Link
-          href={"https://uniproject.jp"}
-          target="_blank"
-          className="hover:underline inline-flex items-baseline"
-        >
-          &quot;UniProject&quot;
-          <FaExternalLinkAlt />
-        </Link>{" "}
-        and actively participates in various projects.
+        at S High School in Japan.
       </>
     ),
   },
@@ -92,7 +82,7 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
     friendLinks: "Friend Links",
     contents: (
       <div className="space-y-4 p-5">
-        <section className="flex flex-col md:flex-row gap-4">
+        {/*<section className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-grow justify-center items-center md:order-1 order-2">
             <Image
               src="/img/UniPro_Logo.webp"
@@ -120,7 +110,7 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
             <span>(c) 2024-2025 UniProject. Used under CC BY-NC-SA 4.0</span>
           </div>
         </section>
-        <hr />
+        <hr />*/}
         <section className="flex flex-col md:flex-row gap-4">
           <div className="md:w-3/5">
             <h2 className="text-2xl">
@@ -134,10 +124,10 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
               </Link>
             </h2>
             <p>
-              Club Portal Linkle is a website managed by UniProject that
-              aggregates information about clubs within N/S/R High School. It
-              provides convenient features for finding club information. This
-              project received the Excellence Award at the{" "}
+              Club Portal Linkle is a website that aggregates information about
+              clubs within N/S/R High School. It had managed for 2 years until
+              April, 2026. It provides convenient features for finding club
+              information. This project received the Excellence Award at the{" "}
               <bold className="font-bold">
                 <Link
                   href={
@@ -164,37 +154,6 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
         </section>
         <hr />
         <section className="flex flex-col md:flex-row gap-4">
-          <div className="flex flex-grow justify-center items-center md:order-1 order-2">
-            <Image
-              src="/img/UniProGitTool.webp"
-              alt="UniPro Git Tool"
-              height={150}
-              width={350}
-            />
-          </div>
-          <div className="md:w-3/5 order-1 md:order-2">
-            <h2 className="text-2xl">
-              <Link
-                href={"https://github.com/UniPro-tech/UniPro-Git-Tool"}
-                f={"https://github.com/UniPro-tech/UniPro-Git-Tool"}
-                target="_blank"
-                className="flex flex-row items-center gap-2"
-              >
-                UniPro Git Tool UniPro Git Tool
-                <FaExternalLinkAlt />
-              </Link>
-            </h2>
-            <p>
-              UniPro Git Tool is a utility designed to enhance Git commitniPro
-              Git Tool is a tool to make Git commit messages more messages. It
-              allows users to add emojis to commit messages basedased on on
-              templates and prefixes.
-            </p>
-          </div>
-          <span>(c) 2024 UniProject. Used under CC BY-NC-SA 4.0</span>
-        </section>
-        <hr />
-        <section className="flex flex-col md:flex-row gap-4">
           <div className="md:w-3/5">
             <h2 className="text-2xl">
               <Link
@@ -212,14 +171,32 @@ Step into a slightly whimsical, gently chaotic world. Welcome to my utopia.`,
               information security talent from Japan who can compete globally. I
               am a member of the community support group of this organization.
             </p>
-            <span>Copyright(C)Security Camp</span>
+          </div>
+        </section>
+        <hr />
+        <section className="flex flex-col md:flex-row gap-4">
+          <div className="md:w-3/5">
+            <h2 className="text-2xl mb-2">
+              <Link
+                href={"https://github.com/cilium/cilium"}
+                target="_blank"
+                className="flex flex-row items-center gap-2"
+              >
+                Cilium
+                <FaExternalLinkAlt />
+              </Link>
+            </h2>
+            <p>
+              I'm active as contributor of Cilium that is Kubernetes CNI. I
+              mainly develop L2 datapath feature.
+            </p>
           </div>
           <div className="flex flex-grow justify-center items-center">
             <Image
-              src="/img/security-camp.png"
-              alt="Security Camp Association"
+              src="/img/cilium.png"
+              alt="Cilium"
               height={150}
-              width={150}
+              width={300}
             />
           </div>
         </section>

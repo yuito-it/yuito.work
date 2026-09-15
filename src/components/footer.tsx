@@ -24,20 +24,6 @@ export default function footer() {
           <ImGithub />
           View Source
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://uniproject.jp"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            src="/img/UniPro_Logo.webp"
-            alt="UniProject"
-            width={20}
-            height={20}
-          />
-          Go to UniProject
-        </a>
       </div>
       <span className="text-center">
         &copy;2024-2025 YuitoAkatsuki All rights reserved.

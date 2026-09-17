@@ -7,6 +7,9 @@ import portrait from "./assets/img/me/icon.png";
 import awardPhoto from "./assets/img/works/seccamp_forum_award_unique.JPG?url";
 import uniLogo from "./assets/img/works/UniPro_black.png";
 import "./App.css";
+import "./motion/motion.css";
+import { MotionText } from "./motion/MotionText";
+import { usePageMotion, useWorksMotion } from "./motion/usePageMotion";
 const pages = ["home", "works", "about", "contact"] as const;
 type Page = (typeof pages)[number];
 function readRoute() {
@@ -88,9 +91,12 @@ function App() {
   const [route, setRoute] = useState(readRoute);
   const [filter, setFilter] = useState<Category>("all");
   const [menu, setMenu] = useState(false);
+  const motionScope = useRef<HTMLElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const first = useRef(true);
   const { lang, page } = route;
+  usePageMotion(motionScope, page, lang);
+  useWorksMotion(motionScope, page, lang, filter);
   const t = (ja: string, en: string) => (lang === "ja" ? ja : en);
   const href = (p: Page) => `#/${lang}/${p}`;
   useEffect(() => {
@@ -123,7 +129,7 @@ function App() {
     <div className="page-title">
       <p className="eyebrow">{label}</p>
       <h1 ref={heading} tabIndex={-1}>
-        {t(ja, en)}
+        <MotionText text={t(ja, en)} />
       </h1>
     </div>
   );
@@ -202,26 +208,53 @@ function App() {
           </a>
         </div>
       </header>
-      <main id="main" tabIndex={-1}>
+      <main id="main" ref={motionScope} tabIndex={-1}>
         {page === "home" && (
           <>
             <section className="hero editorial-hero">
-              <div className="hero-topline"><span>PORTFOLIO / 2023 — 2026</span><span>WEB · INFRASTRUCTURE · COMMUNITY</span></div>
-              <h1 ref={heading} tabIndex={-1} className="name-title"><span>YUITO</span><span>AKATSUKI<span className="name-period">.</span></span></h1>
+              <div className="hero-topline">
+                <span>PORTFOLIO / 2023 — 2026</span>
+                <span>WEB · INFRASTRUCTURE · COMMUNITY</span>
+              </div>
+              <h1 ref={heading} tabIndex={-1} className="name-title">
+                <MotionText text="YUITO" />
+                <MotionText text="AKATSUKI." delay={0.12} />
+              </h1>
               <div className="hero-index">
-                <p>{t("あかつきゆいと", "Yuito Akatsuki")}<br/><span>{t("つくる。つなぐ。その先へ。", "Create. Connect. And beyond.")}</span></p>
-                <p>Web development<br/>Infrastructure<br/>Community management</p>
-                <p>{t("UniProject 創設者", "Founder of UniProject")}<br/>{t("セキュリティ・キャンプ修了生", "Security Camp graduate")}<br/>{t("S高等学校4期生", "S High School, fourth cohort")}</p>
-                <a className="text-link" href={href("works")}>{t("活動を見る", "Explore works")} <span>↓</span></a>
+                <p>
+                  {t("あかつきゆいと", "Yuito Akatsuki")}
+                  <br />
+                  <span>
+                    {t(
+                      "つくる。つなぐ。その先へ。",
+                      "Create. Connect. And beyond.",
+                    )}
+                  </span>
+                </p>
+                <p>
+                  Web development
+                  <br />
+                  Infrastructure
+                  <br />
+                  Community management
+                </p>
+                <p>
+                  {t("UniProject 創設者", "Founder of UniProject")}
+                  <br />
+                  {t("セキュリティ・キャンプ修了生", "Security Camp graduate")}
+                  <br />
+                  {t("S高等学校4期生", "S High School, fourth cohort")}
+                </p>
+                <a className="text-link" href={href("works")}>
+                  {t("活動を見る", "Explore works")} <span>↓</span>
+                </a>
               </div>
             </section>
             <section className="section" id="selected">
               <div className="section-heading">
                 <div>
                   <p className="eyebrow">01 / SELECTED WORKS</p>
-                  <h2>
-                    Selected works
-                  </h2>
+                  <h2>Selected works</h2>
                 </div>
                 <a className="text-link" href={href("works")}>
                   {t("すべての活動", "All works")} <span>↗</span>

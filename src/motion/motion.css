@@ -1,0 +1,39 @@
+/* Content remains visible without animation; GSAP owns only temporary styles. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.motion-text {
+  position: relative;
+}
+.motion-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.motion-char {
+  display: inline-block;
+  transform-origin: 50% 90%;
+}
+.name-title .motion-text {
+  display: block;
+}
+.page-title h1 .motion-text {
+  display: inline;
+}
+/* Do not let CSS transitions fight GSAP for the same transform. */
+.text-link > span,
+.art img {
+  transition: none;
+}
+.text-link:hover > span,
+.work-card:hover .art img,
+.round-link:hover {
+  transform: none;
+}

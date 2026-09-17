@@ -2,6 +2,9 @@ name: Deploy GitHub Pages
 # Manual deployment keeps preview work from being published automatically.
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 permissions:
   contents: read
   pages: write

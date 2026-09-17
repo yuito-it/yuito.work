@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# yuitopia
 
-## Getting Started
+あかつきゆいとのポートフォリオ。React + TypeScript + Vite の静的 SPA。SSR・API サーバーは不要です。
 
-First, run the development server:
+## 開発
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+bun install --frozen-lockfile
+bun run dev
+bun run lint
+bun run build
+bun run preview
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ページと言語
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Home / Works / About / Contact。日本語・英語に対応。`#/ja/works`、`#/en/about` のようなハッシュ URL でページと言語を保持するため、GitHub Pages 上で直接アクセス・再読み込み・戻る操作が可能です。未知の URL は日本語 Home にフォールバックします。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+作品・経歴・SNS・プロフィールは `src/content.ts`、表示と UI の翻訳は `src/App.tsx`。Works は新しい日付順で登録します。既存の Linkle / Cilium 画像を使用し、他のサムネイルは CSS によるタイポグラフィです。追加写真に差し替える場合は `Artwork` を編集してください。
 
-## Learn More
+Noto Sans JP は Google Fonts から読み込みます（オフライン時は sans-serif）。
 
-To learn more about Next.js, take a look at the following resources:
+## GitHub Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. GitHub リポジトリの Settings → Pages → Source を GitHub Actions に設定。
+2. Actions → Deploy GitHub Pages → Run workflow を実行。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+ビルド成果物は `dist/`。`base: './'` なのでユーザーサイト・リポジトリ配下の両方で利用できます。公開は手動実行のみ。旧 Docker 配信 workflow は無効化済みです。旧 Next.js 設定と未使用のアニメーションコンポーネントは `old/legacy/` に保管しています。
 
-## Deploy on Vercel
+SPA のためページ本文はブラウザで描画されます。ページ別の検索エンジン／SNS メタデータの静的生成は行いません。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 画像と経歴
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`src/assets/img/me/icon.png` をプロフィールに、`works/UniPro_black.png` をUniProjectに、`works/seccamp_forum_award_unique.JPG` を受賞活動に使用しています。セキュリティ・キャンプ修了日は2025年8月16日、2025年大会として確認済みです。

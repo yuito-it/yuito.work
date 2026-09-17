@@ -38,10 +38,11 @@ export const works: Work[] = [
     category: "security",
     title: ["CVE-2026-33244を報告・取得", "Reported CVE-2026-33244"],
     description: [
-      "脆弱性の報告を行い、CVE-2026-33244を取得しました。",
-      "Reported a vulnerability and obtained CVE-2026-33244.",
+      "react-routerの脆弱性の報告を行い、CVE-2026-33244を取得しました。",
+      "Reported a vulnerability in react-router and obtained CVE-2026-33244.",
     ],
     art: "security",
+    url: "https://github.com/remix-run/react-router/security/advisories/GHSA-f22v-gfqf-p8f3",
   },
   {
     id: "charity",
@@ -61,7 +62,10 @@ export const works: Work[] = [
     id: "award",
     date: "2026.02.14",
     category: "community",
-    title: ["セキュリティ・キャンプ 講師賞", "Security Camp Instructor Award"],
+    title: [
+      "セキュリティ・キャンプ アワード 講師賞",
+      "Security Camp Instructor Award",
+    ],
     description: [
       "セキュリティ・キャンプ フォーラム / アワード 2026に出展。UniProjectとして講師賞を受賞しました。",
       "Exhibited at Security Camp Forum / Award 2026 and received the Instructor Award as UniProject.",

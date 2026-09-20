@@ -10,6 +10,6 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: "../dist",
     },
-    plugins: [react(), ogpPlugin(env.SITE_URL || "https://yuito.work/")],
+    plugins: [react(), ogpPlugin(env.SITE_URL || "https://www.yuito-it.jp/")],
   };
 });

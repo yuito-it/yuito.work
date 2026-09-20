@@ -1,5 +1,5 @@
 import {
-  createHashHistory,
+  createBrowserHistory,
   createRootRoute,
   createRoute,
   createRouter,
@@ -11,12 +11,17 @@ import App from "./App";
 import { works } from "./content";
 import type { Locale } from "./content";
 
-export const pages = ["home", "works", "about", "contact"] as const;
+import { pageNames } from "./seo/metadata";
+export const pages = pageNames;
 export type Page = (typeof pages)[number];
 const rootRoute = createRootRoute({
   component: Outlet,
   notFoundComponent: () => (
-    <Navigate to="/$lang/$page" params={{ lang: "ja", page: "home" }} replace />
+    <Navigate
+      to="/$lang/$page/"
+      params={{ lang: "ja", page: "home" }}
+      replace
+    />
   ),
 });
 const indexRoute = createRoute({
@@ -24,7 +29,7 @@ const indexRoute = createRoute({
   path: "/",
   beforeLoad: () => {
     throw redirect({
-      to: "/$lang/$page",
+      to: "/$lang/$page/",
       params: { lang: "ja", page: "home" },
       replace: true,
     });
@@ -49,16 +54,31 @@ const portfolioRoute = createRoute({
   }),
   // Normalize unsupported URLs instead of displaying a mismatched address.
   beforeLoad: ({ params, location }) => {
-    if (location.pathname !== `/${params.lang}/${params.page}`) {
-      throw redirect({ to: "/$lang/$page", params, replace: true });
+    if (
+      location.pathname.replace(/\/$/, "") !==
+      `${import.meta.env.BASE_URL}${params.lang}/${params.page}`
+    ) {
+      throw redirect({ to: "/$lang/$page/", params, replace: true });
     }
   },
   component: App,
 });
 export const routeTree = rootRoute.addChildren([indexRoute, portfolioRoute]);
+// Preserve old shared hash links, including a selected work.
+const legacy = window.location.hash.match(
+  /^#\/(ja|en)\/(home|works|about|contact)\/?(\?[^#]*)?$/,
+);
+if (legacy)
+  window.history.replaceState(
+    window.history.state,
+    "",
+    `${import.meta.env.BASE_URL}${legacy[1]}/${legacy[2]}/${legacy[3] || ""}`,
+  );
 export const router = createRouter({
   routeTree,
-  history: createHashHistory(),
+  history: createBrowserHistory(),
+  basepath: import.meta.env.BASE_URL,
+  trailingSlash: "always",
   defaultPreload: false,
   scrollRestoration: ({ location }) =>
     !new URLSearchParams(location.searchStr).has("work"),

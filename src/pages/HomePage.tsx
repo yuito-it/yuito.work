@@ -42,7 +42,7 @@ export default function HomePage({ lang, heading }: PageProps) {
           </p>
           <Link
             className="text-link"
-            to="/$lang/$page"
+            to="/$lang/$page/"
             params={{ lang, page: "works" }}
           >
             {t("活動を見る", "Explore works")} <span>↓</span>
@@ -57,7 +57,7 @@ export default function HomePage({ lang, heading }: PageProps) {
           </div>
           <Link
             className="text-link"
-            to="/$lang/$page"
+            to="/$lang/$page/"
             params={{ lang, page: "works" }}
           >
             {t("すべての活動", "All works")} <span>↗</span>
@@ -67,7 +67,7 @@ export default function HomePage({ lang, heading }: PageProps) {
           {[works[3], works[0], works[9]].map((w) => (
             <Link
               className="work-card"
-              to="/$lang/$page"
+              to="/$lang/$page/"
               params={{ lang, page: "works" }}
               search={{ work: w.id }}
               key={w.id}
@@ -110,7 +110,7 @@ export default function HomePage({ lang, heading }: PageProps) {
             <SocialLinks />
             <Link
               className="text-link"
-              to="/$lang/$page"
+              to="/$lang/$page/"
               params={{ lang, page: "about" }}
             >
               {t("もう少し、私について", "A little more about me")}{" "}

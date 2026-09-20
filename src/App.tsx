@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, getRouteApi } from "@tanstack/react-router";
-import { pick, profile } from "./content";
+import { updateMetadata } from "./seo/updateMetadata";
 import { usePageMotion } from "./motion/usePageMotion";
 import HomePage from "./pages/HomePage";
 import WorksPage from "./pages/WorksPage";
@@ -20,11 +20,7 @@ function App() {
   usePageMotion(motionScope, page, lang);
   const t = (ja: string, en: string) => (lang === "ja" ? ja : en);
   useEffect(() => {
-    document.documentElement.lang = lang;
-    document.title = `${page[0].toUpperCase() + page.slice(1)} — ${lang === "ja" ? "あかつきゆいと" : "Yuito Akatsuki"} / yuitopia`;
-    document
-      .querySelector('meta[name="description"]')
-      ?.setAttribute("content", pick(profile, lang));
+    updateMetadata(lang, page);
     heading.current?.focus({ preventScroll: true });
     // Wait for the committed layout before targeting a timeline entry.
     if (page === "works" && work) {
@@ -59,7 +55,7 @@ function App() {
       >
         <Link
           className="brand"
-          to="/$lang/$page"
+          to="/$lang/$page/"
           params={{ lang, page: "home" }}
           aria-label="yuitopia Home"
         >
@@ -81,7 +77,7 @@ function App() {
         >
           {pages.map((p) => (
             <Link
-              to="/$lang/$page"
+              to="/$lang/$page/"
               params={{ lang, page: p }}
               key={p}
               aria-current={page === p ? "page" : undefined}
@@ -92,7 +88,7 @@ function App() {
         </nav>
         <div className="languages" aria-label={t("言語", "Language")}>
           <Link
-            to="/$lang/$page"
+            to="/$lang/$page/"
             params={{ lang: "ja", page }}
             search={{ work }}
             lang="ja"
@@ -102,7 +98,7 @@ function App() {
           </Link>
           <span>/</span>
           <Link
-            to="/$lang/$page"
+            to="/$lang/$page/"
             params={{ lang: "en", page }}
             search={{ work }}
             lang="en"
@@ -126,7 +122,7 @@ function App() {
               </h2>
             </div>
             <Link
-              to="/$lang/$page"
+              to="/$lang/$page/"
               params={{ lang, page: "contact" }}
               className="round-link"
               aria-label={t("お問い合わせ", "Contact")}
@@ -139,13 +135,13 @@ function App() {
       <footer>
         <Link
           className="brand"
-          to="/$lang/$page"
+          to="/$lang/$page/"
           params={{ lang, page: "home" }}
         >
           yuitopia<span className="brand-dot">.</span>
         </Link>
         <span>© {new Date().getFullYear()} Yuito Akatsuki</span>
-        <Link to="/$lang/$page" params={{ lang, page: "contact" }}>
+        <Link to="/$lang/$page/" params={{ lang, page: "contact" }}>
           Contact ↗
         </Link>
       </footer>

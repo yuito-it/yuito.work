@@ -3,10 +3,14 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { Resvg } from "@resvg/resvg-js";
 import type { Plugin } from "vite";
+import {
+  languages,
+  pageNames,
+  pageCopy,
+  pageMetadata,
+} from "../src/seo/metadata.ts";
+import type { Language, PageName } from "../src/seo/metadata.ts";
 
-const title = "あかつきゆいと / yuitopia";
-const description =
-  "Webサイト制作、インフラ、コミュニティ運営。つくる。つなぐ。その先へ。";
 const escapeXml = (value: string) =>
   value.replace(
     /[&<>"']/g,
@@ -19,6 +23,7 @@ const escapeXml = (value: string) =>
         "'": "&apos;",
       })[char]!,
   );
+const metadataBlock = /<!-- page-meta:start -->[\s\S]*?<!-- page-meta:end -->/;
 
 export function ogpPlugin(publicUrl: string): Plugin {
   const site = new URL(publicUrl);
@@ -28,51 +33,44 @@ export function ogpPlugin(publicUrl: string): Plugin {
     site.password ||
     site.search ||
     site.hash
-  ) {
+  )
     throw new Error(
       "SITE_URL must be an absolute HTTP(S) URL without credentials, query or hash.",
     );
-  }
   if (!site.pathname.endsWith("/")) site.pathname += "/";
-  let png: Buffer;
-  let filename: string;
-  return {
-    name: "portfolio-ogp",
-    buildStart() {
-      const font = fileURLToPath(
-        new URL("./fonts/NotoSansJP-Regular.ttf", import.meta.url),
-      );
-      const portrait = fileURLToPath(
-        new URL("../src/assets/img/me/icon.png", import.meta.url),
-      );
-      const bold = fileURLToPath(
-        new URL("./fonts/NotoSansJP-Black.ttf", import.meta.url),
-      );
-      this.addWatchFile(font);
-      this.addWatchFile(bold);
-      this.addWatchFile(portrait);
-      const avatar = readFileSync(portrait).toString("base64");
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
-        <defs><clipPath id="avatar"><circle cx="1020" cy="235" r="104"/></clipPath></defs>
-        <rect width="1200" height="630" fill="#fafaf8"/>
-        <g font-family="OGP Noto Regular" fill="#191919">
-          <text x="64" y="66" font-size="23" font-family="OGP Noto Black">yuitopia.</text>
-          <text x="1136" y="64" text-anchor="end" font-size="14" letter-spacing="2">PORTFOLIO / CREATE · CONNECT</text>
-          <path d="M64 92H1136" stroke="#c9c9c3"/>
-          <text x="56" y="235" font-size="120" font-family="OGP Noto Black" letter-spacing="-5">YUITO</text>
-          <text x="56" y="365" font-size="120" font-family="OGP Noto Black" letter-spacing="-5">AKATSUKI.</text>
-          <circle cx="1020" cy="235" r="111" fill="none" stroke="#d6d6cf"/>
-          <image x="916" y="131" width="208" height="208" clip-path="url(#avatar)" xlink:href="data:image/png;base64,${avatar}"/>
-          <text x="64" y="429" font-size="25" font-family="OGP Noto Black">あかつきゆいと</text>
-          <text x="64" y="479" font-size="23">つくる。つなぐ。その先へ。</text>
-          <path d="M64 534H1136" stroke="#c9c9c3"/>
-          <text x="64" y="580" font-size="16">WEB DEVELOPMENT / INFRASTRUCTURE / COMMUNITY</text>
-          <text x="1136" y="580" text-anchor="end" font-size="17">${escapeXml(site.host)}</text>
-        </g>
-      </svg>`;
-      png = new Resvg(svg, {
+  const fonts = ["Regular", "Black"].map((weight) =>
+    fileURLToPath(new URL(`./fonts/NotoSansJP-${weight}.ttf`, import.meta.url)),
+  );
+  const portrait = fileURLToPath(
+    new URL("../src/assets/img/me/icon.png", import.meta.url),
+  );
+  const avatar = readFileSync(portrait).toString("base64");
+  const images: Record<string, string> = {};
+  const assets = new Map<string, Buffer>();
+  for (const lang of languages)
+    for (const page of pageNames) {
+      const copy = pageCopy[page];
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630">
+      <defs><clipPath id="avatar"><circle cx="1020" cy="235" r="104"/></clipPath></defs>
+      <rect width="1200" height="630" fill="#fafaf8"/>
+      <g font-family="OGP Noto Regular" fill="#191919">
+        <text x="64" y="66" font-size="23" font-family="OGP Noto Black">yuitopia.</text>
+        <text x="1136" y="64" text-anchor="end" font-size="14" letter-spacing="2">${copy.label} / ${lang.toUpperCase()}</text>
+        <path d="M64 92H1136" stroke="#c9c9c3"/>
+        <text x="56" y="235" font-size="108" font-family="OGP Noto Black" letter-spacing="-5">${escapeXml(copy.lines[0])}</text>
+        <text x="56" y="365" font-size="108" font-family="OGP Noto Black" letter-spacing="-5">${escapeXml(copy.lines[1])}</text>
+        <circle cx="1020" cy="235" r="111" fill="none" stroke="#d6d6cf"/>
+        <image x="916" y="131" width="208" height="208" clip-path="url(#avatar)" xlink:href="data:image/png;base64,${avatar}"/>
+        <text x="64" y="429" font-size="25" font-family="OGP Noto Black">${lang === "ja" ? "あかつきゆいと" : "Yuito Akatsuki"}</text>
+        <text x="64" y="479" font-size="23">${escapeXml(copy[lang].heading)}</text>
+        <path d="M64 534H1136" stroke="#c9c9c3"/>
+        <text x="64" y="580" font-size="15">WEB DEVELOPMENT / INFRASTRUCTURE / COMMUNITY</text>
+        <text x="1136" y="580" text-anchor="end" font-size="17">${escapeXml(site.host)}</text>
+      </g>
+    </svg>`;
+      const png = new Resvg(svg, {
         font: {
-          fontFiles: [font, bold],
+          fontFiles: fonts,
           loadSystemFonts: false,
           defaultFontFamily: "OGP Noto Regular",
         },
@@ -80,60 +78,90 @@ export function ogpPlugin(publicUrl: string): Plugin {
         .render()
         .asPng();
       const hash = createHash("sha256").update(png).digest("hex").slice(0, 12);
-      filename = `ogp-${hash}.png`;
-      if (this.environment.config.command === "build") {
-        this.emitFile({ type: "asset", fileName: filename, source: png });
-      }
+      const filename = `ogp/${lang}-${page}-${hash}.png`;
+      assets.set(filename, png);
+      images[`${lang}/${page}`] = new URL(filename, site).href;
+    }
+  function renderHtml(html: string, lang: Language, page: PageName) {
+    const data = pageMetadata(
+      lang,
+      page,
+      site.href,
+      images[`${lang}/${page}`]!,
+    );
+    const tags = Object.entries(data.meta).map(
+      ([key, content]) =>
+        `<meta ${key.startsWith("og:") ? "property" : "name"}="${key}" content="${escapeXml(content)}" />`,
+    );
+    tags.push(
+      `<title>${escapeXml(data.title)}</title>`,
+      `<link rel="canonical" href="${escapeXml(data.url)}" />`,
+    );
+    return html
+      .replace(/<html lang="[^"]*">/, `<html lang="${lang}">`)
+      .replace(
+        metadataBlock,
+        `<!-- page-meta:start -->\n${tags.join("\n")}\n<!-- page-meta:end -->`,
+      );
+  }
+  return {
+    name: "portfolio-ogp",
+    enforce: "post",
+    config() {
+      return {
+        define: {
+          __SITE_URL__: JSON.stringify(site.href),
+          __OGP_IMAGES__: JSON.stringify(images),
+        },
+      };
+    },
+    buildStart() {
+      for (const path of [...fonts, portrait]) this.addWatchFile(path);
+      if (this.environment.config.command === "build")
+        for (const [fileName, source] of assets)
+          this.emitFile({ type: "asset", fileName, source });
     },
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        if (filename && req.url?.split("?")[0]?.endsWith("/" + filename)) {
+        const pathname = new URL(req.url || "/", "http://localhost").pathname;
+        const key = pathname.slice(pathname.indexOf("/ogp/") + 1);
+        const png = assets.get(key);
+        if (png) {
           res.setHeader("Content-Type", "image/png");
           res.end(png);
         } else next();
       });
     },
-    transformIndexHtml() {
-      const image = new URL(filename, site).href;
-      const properties: Record<string, string> = {
-        "og:type": "website",
-        "og:site_name": "yuitopia",
-        "og:title": title,
-        "og:description": description,
-        "og:url": site.href,
-        "og:locale": "ja_JP",
-        "og:locale:alternate": "en_US",
-        "og:image": image,
-        "og:image:type": "image/png",
-        "og:image:width": "1200",
-        "og:image:height": "630",
-        "og:image:alt": description,
-      };
-      const twitter: Record<string, string> = {
-        "twitter:card": "summary_large_image",
-        "twitter:title": title,
-        "twitter:description": description,
-        "twitter:image": image,
-        "twitter:image:alt": description,
-        "twitter:creator": "@yuito_it_",
-      };
-      return [
-        ...Object.entries(properties).map(([property, content]) => ({
-          tag: "meta",
-          attrs: { property, content },
-          injectTo: "head" as const,
-        })),
-        ...Object.entries(twitter).map(([name, content]) => ({
-          tag: "meta",
-          attrs: { name, content },
-          injectTo: "head" as const,
-        })),
-        {
-          tag: "link",
-          attrs: { rel: "canonical", href: site.href },
-          injectTo: "head" as const,
-        },
-      ];
+    transformIndexHtml: {
+      order: "post",
+      handler(html, context) {
+        const match = (context.originalUrl || context.path).match(
+          /\/(ja|en)\/(home|works|about|contact)(?:\/|\?|$)/,
+        );
+        return renderHtml(
+          html,
+          (match?.[1] || "ja") as Language,
+          (match?.[2] || "home") as PageName,
+        );
+      },
+    },
+    generateBundle: {
+      order: "post",
+      handler(_, bundle) {
+        const entry = bundle["index.html"];
+        if (!entry || entry.type !== "asset")
+          throw new Error("Missing index.html for static page generation");
+        const html = String(entry.source);
+        for (const lang of languages)
+          for (const page of pageNames)
+            this.emitFile({
+              type: "asset",
+              fileName: `${lang}/${page}/index.html`,
+              source: renderHtml(html, lang, page),
+            });
+        // Unknown paths can still reach the router on GitHub Pages.
+        this.emitFile({ type: "asset", fileName: "404.html", source: html });
+      },
     },
   };
 }

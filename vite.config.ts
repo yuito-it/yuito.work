@@ -4,12 +4,13 @@ import { defineConfig, loadEnv } from "vite";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "SITE_");
+  const siteUrl = env.SITE_URL || "https://www.yuito-it.jp/";
   return {
-    base: "./",
+    base: new URL(siteUrl).pathname.replace(/\/?$/, "/"),
     root: "./src",
     build: {
       outDir: "../dist",
     },
-    plugins: [react(), ogpPlugin(env.SITE_URL || "https://www.yuito-it.jp/")],
+    plugins: [react(), ogpPlugin(siteUrl)],
   };
 });

@@ -3,11 +3,12 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
-  Navigate,
+  notFound,
   Outlet,
   redirect,
 } from "@tanstack/react-router";
 import App from "./App";
+import NotFoundPage from "./pages/NotFoundPage";
 import { works } from "./content";
 import type { Locale } from "./content";
 
@@ -16,13 +17,7 @@ export const pages = pageNames;
 export type Page = (typeof pages)[number];
 const rootRoute = createRootRoute({
   component: Outlet,
-  notFoundComponent: () => (
-    <Navigate
-      to="/$lang/$page/"
-      params={{ lang: "ja", page: "home" }}
-      replace
-    />
-  ),
+  notFoundComponent: NotFoundPage,
 });
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -52,16 +47,17 @@ const portfolioRoute = createRoute({
         ? search.work
         : undefined,
   }),
-  // Normalize unsupported URLs instead of displaying a mismatched address.
+  // Unsupported language/page pairs are real missing pages.
   beforeLoad: ({ params, location }) => {
     if (
       location.pathname.replace(/\/$/, "") !==
       `${import.meta.env.BASE_URL}${params.lang}/${params.page}`
     ) {
-      throw redirect({ to: "/$lang/$page/", params, replace: true });
+      throw notFound();
     }
   },
   component: App,
+  notFoundComponent: NotFoundPage,
 });
 export const routeTree = rootRoute.addChildren([indexRoute, portfolioRoute]);
 // Preserve old shared hash links, including a selected work.

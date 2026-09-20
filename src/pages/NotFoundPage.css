@@ -1,0 +1,75 @@
+.not-found {
+  background: #fafaf8;
+  color: #191919;
+  min-height: 100svh;
+  font-family: "Noto Sans JP", sans-serif;
+  padding: 0 clamp(24px, 5vw, 80px);
+  box-sizing: border-box;
+}
+.not-found a {
+  color: inherit;
+  text-decoration: none;
+}
+.not-found-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid #d6d6cf;
+}
+.not-found-header > a {
+  font-weight: 800;
+  font-size: 24px;
+}
+.not-found-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(16px, 3vw, 40px);
+  font-size: 14px;
+}
+.not-found-main {
+  padding: clamp(40px, 6vh, 80px) 0 80px;
+}
+.not-found-code {
+  font-weight: 900;
+  font-size: clamp(112px, 23vw, 300px);
+  line-height: 1;
+  letter-spacing: -0.075em;
+  margin: 0 0 32px;
+}
+.not-found-code span {
+  color: #3b725d;
+}
+.not-found-main h1 {
+  font-size: clamp(24px, 4vw, 46px);
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+.not-found-main > p:not(.not-found-code) {
+  line-height: 1.9;
+  color: #60605b;
+}
+.not-found-home {
+  display: inline-flex;
+  gap: 60px;
+  padding: 20px 0;
+  margin-top: 28px;
+  border-bottom: 1px solid;
+}
+.not-found a:focus-visible {
+  outline: 2px solid #3b725d;
+  outline-offset: 6px;
+}
+.not-found-footer {
+  border-top: 1px solid #d6d6cf;
+  padding: 24px 0;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+@media (max-width: 540px) {
+  .not-found-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

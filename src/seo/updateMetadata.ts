@@ -22,7 +22,13 @@ export function updateMetadata(lang: Language, page: PageName) {
     }
     tag.content = content;
   }
-  document.head
-    .querySelector<HTMLLinkElement>('link[rel="canonical"]')
-    ?.setAttribute("href", data.url);
+  let canonical = document.head.querySelector<HTMLLinkElement>(
+    'link[rel="canonical"]',
+  );
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    document.head.append(canonical);
+  }
+  canonical.href = data.url;
 }

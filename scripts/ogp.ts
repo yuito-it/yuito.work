@@ -1,3 +1,4 @@
+import { crawlFiles, notFoundHtml } from "./site-files.ts";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -45,6 +46,7 @@ export function ogpPlugin(publicUrl: string): Plugin {
     new URL("../src/assets/img/me/icon.png", import.meta.url),
   );
   const avatar = readFileSync(portrait).toString("base64");
+  const crawl = crawlFiles(site);
   const images: Record<string, string> = {};
   const assets = new Map<string, Buffer>();
   for (const lang of languages)
@@ -124,6 +126,22 @@ export function ogpPlugin(publicUrl: string): Plugin {
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
         const pathname = new URL(req.url || "/", "http://localhost").pathname;
+        const crawlName = pathname.slice(
+          site.pathname.length,
+        ) as keyof typeof crawl;
+        if (
+          pathname.startsWith(site.pathname) &&
+          Object.hasOwn(crawl, crawlName)
+        ) {
+          res.setHeader(
+            "Content-Type",
+            crawlName.endsWith(".xml")
+              ? "application/xml; charset=utf-8"
+              : "text/plain; charset=utf-8",
+          );
+          res.end(crawl[crawlName]);
+          return;
+        }
         const key = pathname.slice(pathname.indexOf("/ogp/") + 1);
         const png = assets.get(key);
         if (png) {
@@ -160,7 +178,13 @@ export function ogpPlugin(publicUrl: string): Plugin {
               source: renderHtml(html, lang, page),
             });
         // Unknown paths can still reach the router on GitHub Pages.
-        this.emitFile({ type: "asset", fileName: "404.html", source: html });
+        this.emitFile({
+          type: "asset",
+          fileName: "404.html",
+          source: notFoundHtml(html, site),
+        });
+        for (const [fileName, source] of Object.entries(crawl))
+          this.emitFile({ type: "asset", fileName, source });
       },
     },
   };

@@ -1,3 +1,4 @@
+import { FriendLinks } from "../components/FriendLinks";
 import type { PageProps } from "./types";
 import { Link } from "@tanstack/react-router";
 import { categories, pick, profile, works } from "../content";
@@ -119,6 +120,7 @@ export default function HomePage({ lang, heading }: PageProps) {
           </div>
         </div>
       </section>
+      <FriendLinks lang={lang} />
     </>
   );
 }

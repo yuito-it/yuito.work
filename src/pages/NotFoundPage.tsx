@@ -1,3 +1,4 @@
+import { initializeAnalytics } from "../analytics/googleAnalytics";
 import { useEffect } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { pageNames } from "../seo/metadata";
@@ -11,6 +12,7 @@ export default function NotFoundPage() {
   useEffect(() => {
     document.title = "404 — Page not found / yuitopia";
     document.documentElement.lang = lang;
+    initializeAnalytics();
     document.head
       .querySelectorAll(
         'meta[property^="og:"], meta[name^="twitter:"], link[rel="canonical"]',

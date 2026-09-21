@@ -1,3 +1,4 @@
+import { initializeAnalytics } from "./analytics/googleAnalytics";
 import { useEffect, useRef, useState } from "react";
 import { Link, getRouteApi } from "@tanstack/react-router";
 import { updateMetadata } from "./seo/updateMetadata";
@@ -21,6 +22,7 @@ function App() {
   const t = (ja: string, en: string) => (lang === "ja" ? ja : en);
   useEffect(() => {
     updateMetadata(lang, page);
+    initializeAnalytics();
     heading.current?.focus({ preventScroll: true });
     // Wait for the committed layout before targeting a timeline entry.
     if (page === "works" && work) {

@@ -114,7 +114,7 @@ export default function HomePage({ lang, heading }: PageProps) {
               to="/$lang/$page/"
               params={{ lang, page: "about" }}
             >
-              {t("もう少し、私について", "A little more about me")}{" "}
+              {t("もう少し、私について知る", "A little more about me")}{" "}
               <span>↗</span>
             </Link>
           </div>
